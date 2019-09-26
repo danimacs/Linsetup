@@ -8,8 +8,7 @@
      $user_id = $_SESSION['user_identify']['id'];
      $user = isset($_POST['user']) ?  mysqli_real_escape_string($db, $_POST['user']) : false;
      $email = isset($_POST['email']) ?  mysqli_real_escape_string($db, trim($_POST['email'])) : false;
-     $steam = isset($_POST['website']) ?  mysqli_real_escape_string($db, trim($_POST['website'])) : false;
-     $private_account = $_POST['private_account'];
+
 
      if(!empty($_FILES['profile_picture']['name'])){
          $name_profile_picture = $_FILES['profile_picture']['name'];
@@ -55,20 +54,18 @@
          $errors['email'] = "The email is invalid";
      }
 
-     if (!empty($website)) {
-         if (!filter_var($steam, FILTER_VALIDATE_URL)) {
-             $errors['website'] = "The website is invalid";
-         }
-     }
 
 
      if (count($errors) == 0) {
 
-             $sql = "UPDATE users SET user = '$user', email = '$email', website ='$website', private_account = $private_account, profile_picture = '$name_profile_picture' WHERE id = ".$_SESSION['user_identify']['id'];
+             $sql = "UPDATE users SET user = '$user', email = '$email'  WHERE id = ".$_SESSION['user_identify']['id'];
              $query_save = mysqli_query($db,$sql);
 
+             $sql = "UPDATE users SET last_connection_datetime = NOW() WHERE id =".$_SESSION['user_identify']['id'];
+             mysqli_query($db, $sql);
+
              if ($query_save){
-                 $_SESSION['completed'] = "Your data has been updated successfully";
+                 $_SESSION['completed'] = "Your data is updated when you log in";
                  Header( 'Location: ../.././index.php' );
              }else{
                      $_SESSION['errors'] = "The user already exists or the email already exists";

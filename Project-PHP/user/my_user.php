@@ -30,21 +30,26 @@ require_once '.././configs/isset_session.php';
     </article>
     <main>
     <article class="entry"><br/>
-    <h2>Entries</h2>
+    <h2>AutoInstallers</h2>
     <?php
-    $entries = getEntriesByIDUser($db, $_SESSION['user_identify']['id']);
-    if(!empty($entries)):
-        while($entry = mysqli_fetch_assoc($entries)):
-
+    $autoinstallers = getsaveautoinstaller($db, $_SESSION['user_identify']['id']);
+    if(!empty($autoinstallers)):
+        while($autoinstaller = mysqli_fetch_assoc($autoinstallers)):
             ?>
 
-                <?php
+            <p><?=$autoinstaller['create_datetime']?></p>
+            <a href=".././functions/downloadautoinstaller.php?software=<?=$autoinstaller['software']?>" class="buttons">Download Autoinstaller</a>
+            <a href=".././functions/deleteautoinstaller.php?id=<?=$autoinstaller['id']?>" class="buttons">Delete Autoinstaller</a>
+            <br>
+            <br>
+
+        <?php
                 endwhile;
             endif;
             ?>
 
-        <?php if ($entries->num_rows == 0): ?>
-            <p>The user has not yet published anything</p>
+        <?php if ($autoinstallers->num_rows == 0): ?>
+            <p>You haven't saved any autoinstallers yet</p>
         <?php endif; ?>
         </article>
     </main>

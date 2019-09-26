@@ -22,10 +22,9 @@ if (!isset($_SESSION['clickeds'])){
     $_SESSION['clickeds'] = array();
 }
 
-if (!empty($_SESSION['clean_clickeds'])){
-    unset($_SESSION['clickeds']);
+if (isset($_SESSION['clean_clickeds'])){
     $_SESSION['clickeds'] = array();
-    $_SESSION['clean_clickeds'] = false;
+    unset($_SESSION['clean_clickeds']);
 }
 
 ?>
@@ -38,12 +37,12 @@ if (!empty($_SESSION['clean_clickeds'])){
    <body>
    <?php if (isset($_SESSION['errors'])) : ?>
        <div class="errors">
-           <?=$_SESSION['errors'];?>
+           <?=$_SESSION['errors'];?><br/><br/>
        </div>
    <?php endif;?>
    <?php if(isset($_SESSION['completed'])): ?>
        <div class="completed">
-           <?=$_SESSION['completed']?>
+           <?=$_SESSION['completed']?><br/><br/>
        </div>
    <?php endif; ?>
 
@@ -69,7 +68,6 @@ if (!empty($_SESSION['clean_clickeds'])){
     </form>
     </header>
    <hr/>
-    <body>
 
     <div class="list_software">
         <?php
@@ -132,11 +130,16 @@ if (!empty($_SESSION['clean_clickeds'])){
 
     <?php
     if (!empty($_SESSION['clickeds'])): ?>
-        <a href="./functions/createautoinstaller.php" class="createautoinstaller">Download Autoinstaller</a>
+        <a href="./functions/createautoinstaller.php" class="buttons">Download Autoinstaller</a>
+    <?php endif; ?>
+
+    <?php
+    if (!empty($_SESSION['clickeds']) && isset($_SESSION['user_identify'])): ?>
+        <a href="./functions/saveautoinstaller.php" class="buttons">Save Autoinstaller</a>
     <?php endif; ?>
 
     </body>
-
+    <?php deleteErrors(); ?>
       <footer> Developed by "Propietario" &copy; <?=date("Y")?> </footer>
   </body>
 </html>

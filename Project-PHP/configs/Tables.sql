@@ -28,4 +28,13 @@ CONSTRAINT pk_token PRIMARY KEY (id),
 CONSTRAINT fk_users_token FOREIGN KEY (user) REFERENCES users(id)
 );
 
+CREATE TABLE saveautoinstaller(
+id              int(255) auto_increment not null,
+user              int(255) not null,
+software         varchar(255) not null,
+create_datetime           datetime not null,
+CONSTRAINT pk_saveautoinstaller PRIMARY KEY (id),
+CONSTRAINT fk_users_saveautoinstaller FOREIGN KEY (user) REFERENCES users(id)
+);
+
 

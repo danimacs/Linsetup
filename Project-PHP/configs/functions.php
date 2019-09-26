@@ -56,18 +56,6 @@ function getUserFromId($connection, $id){
     return $user;
 }
 
-function getUserFromUser($connection, $user){
-    $sql = "SELECT * FROM users WHERE user= '$user'";
-    $user = mysqli_query($connection, $sql);
-
-    $result =  array();
-    if($user && mysqli_num_rows($user) >= 1){
-        $result = $user;
-    }
-
-    return $user;
-}
-
 function getLastIDEntries($connection, $table){
     $sql = "SELECT id FROM $table ORDER BY id DESC LIMIT 1";
     $result = mysqli_query($connection, $sql);
@@ -77,46 +65,6 @@ function getLastIDEntries($connection, $table){
     }
 
     return $id;
-}
-
-function checkRequest($connection, $id, $user){
-    $sql = "SELECT * FROM friends WHERE $user = $id";
-    $request = mysqli_query($connection, $sql);
-
-    $result =  array();
-    if($request && mysqli_num_rows($request) >= 1){
-        $result = $request;
-    }
-
-    return $request;
-
-}
-
-function getFriends($connection, $id){
-$sql = "SELECT * FROM friends WHERE user_send = $id AND accept = 2";
-    $request = mysqli_query($connection, $sql);
-
-    $result =  array();
-    if($request && mysqli_num_rows($request) >= 1){
-        $result = $request;
-    }
-
-    return $request;
-
-}
-
-
-function checkFriends($connection, $user1, $user2){
-    $sql = "SELECT * FROM friends WHERE user_send = $user1 AND accept = 2 AND user_receive = $user2";
-    $request = mysqli_query($connection, $sql);
-
-    $result =  array();
-    if($request && mysqli_num_rows($request) >= 1){
-        $result = $request;
-    }
-
-    return $request;
-
 }
 
 function checkRecovery($connection, $user, $token){
@@ -194,6 +142,21 @@ function searcherPacketsComplements($conncetion, $search)
 {
 
     $sql = "SELECT * FROM software WHERE name LIKE '%$search%' ORDER BY download DESC LIMIT 11";
+    $searchs = mysqli_query($conncetion, $sql);
+
+    $result = array();
+    if ($searchs && mysqli_num_rows($searchs) >= 1) {
+        $result = $searchs;
+    }
+
+    return $searchs;
+
+}
+
+function getsaveautoinstaller($conncetion, $user)
+{
+
+    $sql = "SELECT * FROM saveautoinstaller WHERE user = $user ORDER BY create_datetime DESC";
     $searchs = mysqli_query($conncetion, $sql);
 
     $result = array();

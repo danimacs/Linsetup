@@ -23,6 +23,15 @@ header input[type=submit]{
     color: #8c8c8c;
 }
 
+
+.buttons{
+    text-decoration: none;
+    color: white;
+    background: gray;
+    padding: 7px 14px;
+}
+
+
 h1{
     position: absolute;
     font-size: 28px;

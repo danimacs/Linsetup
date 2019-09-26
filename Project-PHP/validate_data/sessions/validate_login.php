@@ -42,7 +42,7 @@ if ($_POST){
         header("Location: ../.././index.php");
     }else{
         $_SESSION['errors']['login'] = "Incorrect Login";
-        header("Location: ../.././index.php");
+        header("Location: ../.././user/login.php");
     }
 }
 

@@ -31,7 +31,7 @@ a{
 }
 
 input[type=submit] {
-    background-color: #222222;
+    background-color: gray;
     border: none;
     color: white;
     text-decoration: none;

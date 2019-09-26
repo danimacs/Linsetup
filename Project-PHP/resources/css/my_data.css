@@ -95,7 +95,7 @@ input[type=text], input[type=email], input[type=password]{
 }
 
 input[type=submit] {
-    background-color: #000e2e;
+    background-color: gray;
     border: none;
     color: white;
     padding: 16px 32px;

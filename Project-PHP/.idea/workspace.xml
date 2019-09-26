@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="80548ae2-b2f5-4f1a-9dc9-013950184d5c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/configs/functions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/autoinstaller.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/clickeds.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/createautoinstaller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9b5cd1db-bfa5-4205-abf6-615637227c02.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/dani_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/dani_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/htdocs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/htdocs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about/cookies_policy.php" beforeDir="false" afterPath="$PROJECT_DIR$/about/cookies_policy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about/terms_and_conditions.php" beforeDir="false" afterPath="$PROJECT_DIR$/about/terms_and_conditions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/Tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/configs/Tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/configs/connection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/function.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/isset_session.php" beforeDir="false" afterPath="$PROJECT_DIR$/configs/isset_session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/configs/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recovery_password/forgot_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/recovery_password/forgot_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recovery_password/recovery_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/recovery_password/recovery_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/offline/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/offline/about.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/offline/forgot_password.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/offline/forgot_password.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/offline/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/offline/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/offline/recovery_password.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/offline/recovery_password.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/social/clips.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/social/communities.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/social/community.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/social/create_event.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/social/edit_entry.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/social/edit_event.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/social/events.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/social/homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/social/homepage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/social/public_user.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/social/public_user.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/social/searcher.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/social/searcher_community.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/social/searcher_events.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/social/show_entry.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/user_data/change_password.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/user_data/change_password.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/user_data/my_data.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/user_data/my_data.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/user_data/my_user.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/user_data/my_user.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/clips.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/communities.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/community.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/create_event.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/edit_entry.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/edit_event.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/events.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/homepage.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/public_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/social/public_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/searcher.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/searcher_community.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/searcher_events.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/show_entry.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_data/change_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/user_data/change_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_data/my_data.php" beforeDir="false" afterPath="$PROJECT_DIR$/user_data/my_data.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_data/my_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/user_data/my_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/recovery_password/forgot_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/validate_data/recovery_password/forgot_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/recovery_password/recovery_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/validate_data/recovery_password/recovery_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/recovery_password/update_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/validate_data/recovery_password/update_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/sessions/validate_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/validate_data/sessions/validate_login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/sessions/validate_signin.php" beforeDir="false" afterPath="$PROJECT_DIR$/validate_data/sessions/validate_signin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/add_comment.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/add_follow.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/add_point_plays.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/answer_request.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/create_entries.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/create_events.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/delete_comment.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/delete_entry.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/delete_event.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/delete_follow.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/delete_notify.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/exit_event.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/hide_staff.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/join_event.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/notify_request.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/social/report.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/user_data/change_my_data.php" beforeDir="false" afterPath="$PROJECT_DIR$/validate_data/user_data/change_my_data.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/user_data/change_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/validate_data/user_data/change_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/user_data/send_email_verificate.php" beforeDir="false" afterPath="$PROJECT_DIR$/validate_data/user_data/send_email_verificate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validate_data/user_data/verificate_account.php" beforeDir="false" afterPath="$PROJECT_DIR$/validate_data/user_data/verificate_account.php" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="project@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="project@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="project@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="project: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="project@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="project: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="game_sessions: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="project@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="project: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="user_game_sessions: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="htdocs" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1P6mpFqJ7Eo8lpDcuBgGDuIhcJR" />
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/resources/css/social/edit_entry.css" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/functions" />
+      <recent name="C:\xampp\htdocs\validate_data\social" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="C:\xampp\htdocs\resources\css\offline" />
+      <recent name="C:\xampp\htdocs\resources\css\!isset_session" />
+      <recent name="C:\xampp\htdocs" />
+      <recent name="C:\xampp\htdocs\libraries" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@9e24500e" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+    <option name="showServicesTree" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="80548ae2-b2f5-4f1a-9dc9-013950184d5c" name="Default Changelist" comment="" />
+      <created>1565203100412</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1565203100412</updated>
+      <workItem from="1565203103310" duration="3192000" />
+      <workItem from="1565256106948" duration="13746000" />
+      <workItem from="1565307047038" duration="2003000" />
+      <workItem from="1565342369488" duration="90000" />
+      <workItem from="1565345732328" duration="3871000" />
+      <workItem from="1565356388869" duration="3183000" />
+      <workItem from="1565368427628" duration="2091000" />
+      <workItem from="1565387251419" duration="1707000" />
+      <workItem from="1565444846087" duration="940000" />
+      <workItem from="1565446229774" duration="2355000" />
+      <workItem from="1565467802099" duration="1155000" />
+      <workItem from="1565608183892" duration="5492000" />
+      <workItem from="1565704064977" duration="4079000" />
+      <workItem from="1567336069412" duration="328000" />
+      <workItem from="1567353982648" duration="467000" />
+      <workItem from="1567599834070" duration="139000" />
+      <workItem from="1567600016038" duration="13000" />
+      <workItem from="1567951254583" duration="2372000" />
+      <workItem from="1567982022743" duration="461000" />
+      <workItem from="1569334690500" duration="2320000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

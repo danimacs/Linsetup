@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /validate_data/
+Disallow: /assets/
+Disallow: /database/
+Disallow: /functions/
+Disallow: /libraries/
+Disallow: /user_data/
+Disallow: /assets/
+Disallow: /social/
+
+Sitemap: http://www.PROJECT.com/sitemap.xml

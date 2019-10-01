@@ -1,4 +1,0 @@
-Apt: 
-apt-cache pkgnames > apt.txt
-
-Snap: 

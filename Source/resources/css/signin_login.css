@@ -1,0 +1,113 @@
+h1{
+    font-family: Poppins;
+    position: absolute;
+    font-size: 30px;
+    margin-top: -0.5%;
+}
+
+h1 a{
+    text-decoration: none;
+    color: black;
+}
+
+.h2{
+    text-align: center;
+}
+
+.signin_login{
+    float: right;
+}
+
+a{
+    color: #8c8c8c;
+    text-decoration: none;
+}
+
+header input[type=text]{
+    width: 50%;
+    background: #2c2c2c;
+    border-top: hidden;
+    border-right: hidden;
+    border-left: hidden;
+    border-bottom: 2px solid #222222;
+    margin-right: 2%;
+    height: 20px;
+    color: #8c8c8c;
+}
+
+header input[type=submit]{
+    background: #222222;
+    padding: 7px 10px;
+    border: 0;
+    text-align: center;
+    color: #8c8c8c;
+}
+
+header::placeholder{
+    color: white;
+}
+
+header{
+    float: right;
+}
+
+body{
+    /* Background pattern from Toptal Subtle Patterns */
+    background-image:url("../img/dark-honeycomb.png");
+    max-width: 50%;
+    margin-left: 25%;
+}
+
+.signin, .login{
+    margin-top: 5%;
+    background-image:url("../img/dark-honeycomb.png");
+    width: 35%;
+}
+
+.data{
+    margin-top: 0.3%;
+    float: right;
+}
+
+.data a{
+    margin-left: 10px;
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    border: none;
+}
+
+input{
+    background: #2c2c2c;
+    width: 100%;
+    border-top: hidden;
+    border-right: hidden;
+    border-left: hidden;
+    border-bottom: 2px solid #222222;
+    height: 22px;
+    color: #8c8c8c;
+}
+
+.body::placeholder{
+    color: white;
+}
+
+
+input[type=submit] {
+    background-color: gray;
+    border: none;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    width: 50%;
+    height: 35px;
+}
+
+.password{
+    width: 35%;
+    float: right;
+    margin-top: -63.5%;
+}

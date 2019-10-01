@@ -1,0 +1,118 @@
+h1{
+    font-family: Poppins;
+    position: absolute;
+    font-size: 30px;
+    margin-top: -0.5%;
+}
+
+h1 a{
+    text-decoration: none;
+    color: black;
+}
+
+form{
+    float: right;
+}
+
+.software a{
+    text-decoration: none;
+    color: black;
+}
+
+header{
+    float: right;
+}
+
+.buttons{
+    text-decoration: none;
+    color: white;
+    background: gray;
+    padding: 14px 16px;
+    float: right;
+}
+
+.data{
+    margin-top: 0.3%;
+    float: right;
+}
+
+.data a{
+    margin-left: 10px;
+}
+
+body{
+    /* Background pattern from Toptal Subtle Patterns */
+    background-image:url("../img/dark-honeycomb.png");
+    max-width: 50%;
+    margin-left: 25%;
+}
+
+/* Header */
+.forgot_password{
+    float: left;
+    text-decoration: none;
+    color: black;
+    margin-left: 11%;
+    margin-top: 0.4%;
+}
+
+.signin_login{
+    float: right;
+}
+
+
+header input[type=text]{
+    width: 50%;
+    background: #2c2c2c;
+    border-top: hidden;
+    border-right: hidden;
+    border-left: hidden;
+    border-bottom: 2px solid #222222;
+    margin-right: 2%;
+    height: 20px;
+    color: #8c8c8c;
+}
+
+header input[type=submit]{
+    background: #222222;
+    padding: 7px 10px;
+    border: 0;
+    text-align: center;
+    color: #8c8c8c;
+}
+
+header::placeholder{
+    color: white;
+}
+
+.list_software{
+    float: right;
+    margin-right: 10%;
+    margin-top: 1%;
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    border: none;
+}
+
+a{
+    color: #8c8c8c;
+    text-decoration: none;
+}
+
+footer{
+    bottom: 0;
+    position: fixed;
+    width: 99%;
+}
+
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 Updates:
-United login, login and recovery password
-Protection against brute force attacks
+Created meta.php for don't repite code
+Solved SQLInjection
 
 
 PHP-Project:
@@ -11,6 +11,8 @@ Terms and Conditions
 Cookies policy
 Save Autoinstaller
 Protection against brute force attacks
+Resolve SQLInjection
+
 
 Python Project:
 Script to upload available packages

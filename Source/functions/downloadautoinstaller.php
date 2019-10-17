@@ -3,10 +3,6 @@
 include_once '.././configs/functions.php';
 include_once '.././configs/connection.php';
 
-if (!isset($_SESSION)){
-    session_start();
-}
-
 $_SESSION['clean_clickeds'] = true;
 
 if (empty($_GET['software'])){

@@ -2,8 +2,8 @@
 
     require_once '../.././configs/connection.php';
 
-        $user = $_GET['user'];
-        $token = $_GET['token'];
+        $user = mysqli_real_escape_string($db, $_GET['user']);
+        $token = mysqli_real_escape_string($db, $_GET['token']);
 
         if (isset($user) && isset($token)) {
             $sql = "SELECT * FROM tokens WHERE token = '$token' AND user = $user";
@@ -20,7 +20,7 @@
                 }
 
                 mysqli_query($db, $sql);
-                
+
                 //Delete table
                 $sql = "DELETE FROM tokens WHERE user = '$user'";
                 mysqli_query($db, $sql);
@@ -35,4 +35,3 @@
 
     $_SESSION['completed'] = "The process completed successfully";
     header('Location: ../.././index.php');
-

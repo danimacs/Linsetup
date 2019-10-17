@@ -3,8 +3,8 @@ require_once '../.././configs/connection.php';
 if (isset($_SESSION['user_identify'])){
     session_destroy();
 }
-    $user = $_GET['user'];
-    $token = $_GET['token'];
+    $user = mysqli_real_escape_string($db, $_GET['user']);
+    $token = mysqli_real_escape_string($db, $_GET['token']);
 
     if (!empty($user) && !empty($token)){
 
@@ -28,5 +28,3 @@ if (isset($_SESSION['user_identify'])){
         $_SESSION['errors']['recovery_password'] = "The data was not sent correctly, please retry";
         header("Location: ../.././user/login_signin.php?user=$user&token=$token");
     }
-
-

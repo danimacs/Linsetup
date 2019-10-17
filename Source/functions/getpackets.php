@@ -2,12 +2,16 @@
 require_once './configs/connection.php';
 require_once './configs/functions.php';
 
-if (isset($_POST['searcher']) && !empty($_POST['searcher'])) {
+if(isset($_POST['searcher'])){
+    $searcher = mysqli_real_escape_string($db, $_POST['searcher']);
+}
+
+if (isset($searcher) && !empty($searcher)) {
 
     if (isset($_POST['complement'])){
-        $searchers = searcherPacketsComplements($db, $_POST['searcher']);
+        $searchers = searcherPacketsComplements($db, $searcher);
     }else{
-        $searchers = searcherPackets($db, $_POST['searcher']);
+        $searchers = searcherPackets($db, $searcher);
     }
 
 }else{

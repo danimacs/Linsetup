@@ -4,8 +4,8 @@ require_once '../.././configs/functions.php';
 
 if ($_POST){
 
-    $email_user = trim($_POST['email_user']);
-    $password = $_POST['password'];
+    $email_user = mysqli_real_escape_string($db, trim($_POST['email_user']));
+    $password = mysqli_real_escape_string($db, $_POST['password']);
 
 
     if (filter_var($email_user, FILTER_VALIDATE_EMAIL)) {
@@ -84,4 +84,3 @@ if ($_POST){
         }
     }
 }
-

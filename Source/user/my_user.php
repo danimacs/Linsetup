@@ -3,17 +3,9 @@ require_once '.././configs/connection.php';
 require_once '.././configs/functions.php';
 require_once '.././configs/isset_session.php';
 ?>
-<!doctype html>
     <!DOCTYPE html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <meta name="title" content="">
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <meta name="robots" content="index, follow, all">
-        <meta http-equiv="Content-Language" content="en">
-        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+      <?php include_once '.././configs/meta.php'; ?>
         <link rel="stylesheet" type="text/css" href=".././resources/css/my_user.css">
         <title>WPM - <?=$_SESSION['user_identify']['user']?></title>
     </head>
@@ -69,6 +61,3 @@ require_once '.././configs/isset_session.php';
       </footer>
 </body>
 </html>
-
-
-

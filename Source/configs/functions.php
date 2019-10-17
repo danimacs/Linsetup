@@ -32,6 +32,7 @@ function deleteErrors (){
 }
 
 function getEntriesByIDUser($connection, $id){
+	
     $sql = "SELECT * FROM entries WHERE user_id = $id ORDER BY create_datetime DESC";
     $entry = mysqli_query($connection, $sql);
 
@@ -41,10 +42,12 @@ function getEntriesByIDUser($connection, $id){
      }
 
     return $entry;
+		
 }
 
 
 function getUserFromId($connection, $id){
+	
     $sql = "SELECT * FROM users WHERE id= $id";
     $user = mysqli_query($connection, $sql);
 

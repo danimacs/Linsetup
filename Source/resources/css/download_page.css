@@ -2,7 +2,7 @@ h1{
     font-family: Poppins;
     position: absolute;
     font-size: 30px;
-    margin-top: -0.8%;
+    margin-top: -0.5%;
 }
 
 h1 a{
@@ -17,7 +17,6 @@ form{
 .software a{
     text-decoration: none;
     color: black;
-    font-weight: 700;
 }
 
 header{
@@ -30,6 +29,7 @@ header{
     background: gray;
     padding: 14px 16px;
     float: right;
+    position: absolute;
 }
 
 .data{
@@ -87,6 +87,12 @@ header::placeholder{
 .list_software{
     float: right;
     margin-top: 1%;
+    color: #8c8c8c;
+}
+
+a{
+    color: #8c8c8c;
+    text-decoration: none;
 }
 
 hr {
@@ -94,11 +100,6 @@ hr {
     height: 1px;
     background-color: black;
     border: none;
-}
-
-a{
-    color: #8c8c8c;
-    text-decoration: none;
 }
 
 footer{

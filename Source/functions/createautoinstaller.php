@@ -24,13 +24,6 @@ $file  = fopen('autoinstaller.sh','w');
 fwrite($file, $txt);
 fclose($file);
 
-
-$file = file('autoinstaller.sh');
-$file2 = implode("", $file);
-header('Content-Type: application/octet-stream');
-header('Content-Disposition: attachment; filename=autoinstaller.sh');
-
-echo $file2;
-
+header('Location: .././pages/download_page.php');
 
 

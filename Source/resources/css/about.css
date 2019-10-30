@@ -1,40 +1,7 @@
-nav, header {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    float: right;
-}
-
-
-nav a, header a{
-    color: #8c8c8c;
-    text-align: center;
-    margin-left: 10px;
-    text-decoration: none;
-    font-size: 100%;
-}
-
-header input[type=submit]{
-    background: #222222;
-    padding: 5px 7px;
-    border: 0;
-    text-align: center;
-    color: #8c8c8c;
-}
-
-.login {
-    margin-left: 60%;
-}
-
-.login label{
-    margin-left: 1%;
-}
-
 h1{
     position: absolute;
     font-size: 30px;
-    top: -1.3%;
+    margin-top: -0.8%;
     font-family: Poppins;
 }
 
@@ -54,10 +21,6 @@ a{
     color: #8c8c8c;
     text-decoration: none;
 }
-.errors_login{
-    position: absolute;
-    margin-top: 0.07%;
-}
 
 hr {
     width: 100%;
@@ -66,88 +29,12 @@ hr {
     border: none;
 }
 
-a{
-    color: #8c8c8c;
-    text-decoration: none;
-}
-.searcher_header_input{
-    width: 69.8%;
-    background: #2c2c2c;
-    border-top: hidden;
-    border-right: hidden;
-    border-left: hidden;
-    border-bottom: 2px solid #222222;
-    margin-right: 2%;
-    height: 20px;
-    color: #8c8c8c;
-}
-
-.searcher_header{
-    float: left;
-    margin: 0;
-}
-
-input[type=text], input[type=password]{
-    width: 30%;
-    background: #2c2c2c;
-    border-top: hidden;
-    border-right: hidden;
-    border-left: hidden;
-    border-bottom: 2px solid #222222;
-    margin-right: 2%;
-    height: 20px;
-    color: #8c8c8c;
-}
-
-header::placeholder{
-    color: white;
-}
-
-input[type=submit]{
-    background: #222222;
-    padding: 7px 14px;
-    border: 0;
-    text-align: center;
-    color: #8c8c8c;
-}
-
 body{
     /* Background pattern from Toptal Subtle Patterns */
-    background-image:url("../img/dark-honeycomb.png");
+    background-image:url("../img/qbkls.png");
     max-width: 50%;
     margin-left: 25%;
-}
-
-.aside-top a {
-    margin-left: 60px;
-    margin-top: -35px;
-    font-size: 130%;
-    color: #8c8c8c;
-    display: block;
-    text-align: left;
-    text-decoration: none;
-}
-
-.aside-bottom{
-    width: 250px;
-}
-
-.aside-bottom a {
-    padding: 6px 16px 10px 16px;
-    text-decoration: none;
-    font-size: 30px;
-    color: black;
-    display: block;
-    border-bottom: 1px black;
-    text-align: left;
-}
-
-.aside-news{
-    float: right;
-}
-
-.profile_picture{
-    border-radius: 50%
+    margin-top: 1%;
 }
 
 input[type=submit] a {
@@ -159,16 +46,10 @@ input[type=submit] a {
     cursor: pointer;
 }
 
-a{
-    text-decoration: none;
-    color: black;
-}
-
 footer{
     bottom: 0;
     position: fixed;
-    width: 99%;
+    margin-left: 60%;
 }
-
 
 

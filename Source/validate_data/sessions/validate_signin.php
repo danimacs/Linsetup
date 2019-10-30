@@ -56,17 +56,25 @@
              $user_id = getLastIDEntries($db, "users");
              $user_id = $user_id++;
 
+             //Automatic login after registration
+             $sql = "SELECT * FROM users WHERE email = '$email'";
+             $login = mysqli_query($db, $sql);
+
+             $user_database = mysqli_fetch_assoc($login);
+             $_SESSION['user_identify'] = $user_database;
+
+
 
              header("Location: ../.././validate_data/user_data/send_email_verificate.php?user_id=$user_id&from=signin");
 
          }else{
              $_SESSION['errors'] = $errors;
-             header("Location: ../.././user/login_signin.php");
+             header("Location: ../.././pages/login_signin.php");
          }
 
 	}else{
         $_SESSION['errors'] = "There was an error sending the data";
-        header("Location: ../.././user/login_signin.php");
+        header("Location: ../.././pages/login_signin.php");
  }
 
 

@@ -3,7 +3,7 @@
 $server = "localhost";
 $username = "phpmyadmin";
 $password = "root";
-$database = "WPM";
+$database = "wpm";
 $db = mysqli_connect($server, $username, $password, $database);
 
 if(!$db){

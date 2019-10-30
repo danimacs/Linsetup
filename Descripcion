@@ -1,9 +1,11 @@
 Updates:
-Created meta.php for don't repite code
-Solved SQLInjection
+Repair error -> restart count try when login
+Automatic login after registration
+Page of download
+Share Autoinstaller
+Change Theme
 
-
-PHP-Project:
+Source:
 Login and login
 Edit email, nickname, password
 Search packages and download a script to install them
@@ -12,7 +14,9 @@ Cookies policy
 Save Autoinstaller
 Protection against brute force attacks
 Resolve SQLInjection
+Page of download
+Share Autoinstaller
 
 
-Python Project:
+Database:
 Script to upload available packages

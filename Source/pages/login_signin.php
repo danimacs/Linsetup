@@ -2,7 +2,8 @@
 include_once '../configs/connection.php';
 include_once '../configs/functions.php';
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <?php include_once '.././configs/meta.php'; ?>
         <title>WPM</title>
@@ -10,7 +11,7 @@ include_once '../configs/functions.php';
     </head>
     <body>
 
-    <h1><a href=".././index.php">WPM</a></h1>
+    <h1><a href="../index.php">WPM</a></h1>
 
     <a href="login_signin.php" class="signin_login">Login | Signin</a><br/>
 
@@ -22,17 +23,17 @@ include_once '../configs/functions.php';
             </div>
         <?php endif; ?>
         <h2>Login</h2>
-           <form method="POST" action=".././validate_data/sessions/validate_login.php">
+           <form method="POST" action="../validate_data/sessions/validate_login.php">
             <input type="text" name="email_user" placeholder="Email or User:"/><br/><br/>
             <input type="password" name="password" placeholder="Password:"/><br/><br/>
             <input type="submit" value="Login"/><br/><br/>
         </form>
-        <a href="./login_signin.php?forgot_password" class="forgot_password">Forgot Password?</a>
+        <a href="login_signin.php?forgot_password" class="forgot_password">Forgot Password?</a>
     </div>
 
     <div class="signin">
         <h2>Register</h2>
-        <form method="POST" action=".././validate_data/sessions/validate_signin.php">
+        <form method="POST" action="../validate_data/sessions/validate_signin.php">
             <input type="text" name="user" autofocus class="input_signin" placeholder="User:"/><br/>
             <?php echo isset($_SESSION['errors']) ? showErrors($_SESSION['errors'], 'user') : ''; ?>
             <br/>
@@ -47,7 +48,7 @@ include_once '../configs/functions.php';
             <br/>
             <input type="submit" value="Sign Up" name="submit"/>
             <br/>
-            <p>By clicking on Sign Up you accept the <a href=".././about/terms_and_conditions.php">Terms and Conditions</a>, also accept <a href=".././about/cookies_policy.php">Cookies Policy</a>.</p>
+            <p>By clicking on Sign Up you accept the <a href="../about/terms_and_conditions.php">Terms and Conditions</a>, also accept <a href="../about/cookies_policy.php">Cookies Policy</a>.</p>
         </form>
     </div>
 
@@ -59,7 +60,7 @@ include_once '../configs/functions.php';
                     <?=$_SESSION['errors']['forgot_password'] ?>
                 </div>
             <?php endif; ?>
-            <form method="POST" action=".././validate_data/recovery_password/forgot_password.php">
+            <form method="POST" action="../validate_data/recovery_password/forgot_password.php">
                 <label for="email_user">Email:</label><br/>
                 <input type="text" name="email_user" autofocus class="input_signin"/><br/>
                 <?php echo isset($_SESSION['errors']) ? showErrors($_SESSION['errors'], 'email') : ''; ?>
@@ -72,7 +73,7 @@ include_once '../configs/functions.php';
     <?php if (isset($_GET['recovery_password'])): ?>
     <div class="password">
         <h2>Recovery Password</h2>
-        <form method="POST" action=".././validate_data/recovery_password/update_password.php?user=<?=$_GET['user']?>&token=<?=$_GET['token']?>">
+        <form method="POST" action="../validate_data/recovery_password/update_password.php?user=<?=$_GET['user']?>&token=<?=$_GET['token']?>">
             <label for="password">Password:</label><br/>
             <input type="password" name="password" autofocus class="input_signin"/><br/>
             <?php echo isset($_SESSION['errors']) ? showErrors($_SESSION['errors'], 'password') : ''; ?>

@@ -3,10 +3,11 @@
 include_once '.././configs/connection.php';
 include_once '.././configs/isset_session.php';
 
-$id = $_GET['id'];
+$user = $_SESSION['user_identify']['id'];
+$id = (int)$_GET['id'];
 
 if(is_int($id)){
-    $sql = "DELETE FROM saveautoinstaller WHERE id = '$id';";
+    $sql = "DELETE FROM saveautoinstaller WHERE id = '$id' AND user = $user";
     mysqli_query($db, $sql);
 }
 

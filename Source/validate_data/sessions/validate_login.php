@@ -16,6 +16,10 @@ if ($_POST){
 
     $login = mysqli_query($db, $sql);
 
+    if ($login && mysqli_num_rows($login) == 0){
+        $_SESSION['errors']['login'] = "There is no such account";
+    }
+
     if ($login && mysqli_num_rows($login) == 1) {
         $user_database = mysqli_fetch_assoc($login);
 
@@ -28,6 +32,14 @@ if ($_POST){
                 $sql = "UPDATE users SET last_connection_datetime = NOW() WHERE email = '$email_user'";
             } else {
                 $sql = "UPDATE users SET last_connection_datetime = NOW() WHERE user = '$email_user'";
+            }
+
+            mysqli_query($db, $sql);
+
+            if (filter_var($email_user, FILTER_VALIDATE_EMAIL)) {
+                $sql = "UPDATE users SET try = 0 WHERE email = '$email_user'";
+            } else {
+                $sql = "UPDATE users SET try = 0 WHERE user = '$email_user'";
             }
 
             mysqli_query($db, $sql);
@@ -80,7 +92,7 @@ if ($_POST){
         if ($try >= 10){
         header("Location: ../.././validate_data/user_data/send_email_verificate.php?user_id=$account&from=unlock");
         }else{
-        header("Location: ../.././user/login_signin.php");
+        header("Location: ../.././pages/login_signin.php");
         }
     }
 }

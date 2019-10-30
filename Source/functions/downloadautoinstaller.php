@@ -3,13 +3,14 @@
 include_once '.././configs/functions.php';
 include_once '.././configs/connection.php';
 
-$_SESSION['clean_clickeds'] = true;
-
-if (empty($_GET['software'])){
-    header('Location: .././index.php');
+$id = (int)$_GET['id'];
+if (is_int($id)) {
+    $_SESSION['clickeds'] = getsaveautoinstaller($db, $_GET['id']);
+    $_SESSION['clickeds'] = mysqli_fetch_assoc($_SESSION['clickeds']);
+    $_SESSION['clickeds'] = $_SESSION['clickeds']['software'];
 }
 
-$_SESSION['clickeds'] = explode(" ", $_GET['software']);
+$_SESSION['clickeds'] = explode(" ", $_SESSION['clickeds']);
 $long = count($_SESSION['clickeds']);
 $long--;
 $defect = "sudo apt install ";
@@ -25,9 +26,4 @@ $file  = fopen('autoinstaller.sh','w');
 fwrite($file, $txt);
 fclose($file);
 
-$file = file('autoinstaller.sh');
-$file2 = implode("", $file);
-header('Content-Type: application/octet-stream');
-header('Content-Disposition: attachment; filename=autoinstaller.sh');
-
-echo $file2;
+header('Location: .././pages/download_page.php');

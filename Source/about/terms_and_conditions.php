@@ -1,51 +1,15 @@
-<?php
-require_once '.././configs/connection.php';
-require_once '.././configs/functions.php';
-?>
-    <!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <meta name="title" content="">
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <meta name="robots" content="index, follow, all">
-        <meta http-equiv="Content-Language" content="en">
-        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+            <?php include_once '.././configs/meta.php'; ?>
         <title>WPM</title>
         <link rel="stylesheet" type="text/css" href="../resources/css/about.css">
     </head>
-     <body>
+
+    <body>
     <h1><a href="../index.php">WPM</a></h1>
-    <?php if (isset($_SESSION['user_identify'])): ?>
-    <header>
-        <form action=".././social/searcher.php" method="POST" class="searcher_header">
-            <input type="search" name="search" class="searcher_header_input" placeholder="Searcher:">
-            <input type="submit" value="Search">
-        </form>
-        <a href="../user/my_user.php"><?=$_SESSION['user_identify']['user'];?></a>
-        <a href="../user/my_data.php">Settings</a>
-        <a href="../configs/logout.php">Sign Off</a>
-    </header>
+
     <br/>
-    <?php endif;?>
-   <?php if(!isset($_SESSION['user_identify'])):?>
-     <?php if (isset($_SESSION['errors']['login'])) : ?>
-          <div class="errors_login">
-              <?=$_SESSION['errors']['login'];?>
-          </div>
-      <?php endif;?>
-      <?php if(isset($_SESSION['completed'])): ?>
-          <div class="completed">
-              <?=$_SESSION['completed']?>
-          </div>
-      <?php endif; ?>
-       <form method="POST" action=".././validate_data/sessions/validate_login.php" class="login">
-           <input type="text" name="email_user" placeholder="Email or User:"/>
-           <input type="password" name="password" placeholder="Password:"/>
-           <input type="submit" value="Login"/>
-       </form>
-    <?php endif; ?>
     <hr>
     <main>
         <h2>Terms and Conditions</h2>
@@ -143,12 +107,6 @@ require_once '.././configs/functions.php';
         <p>contact@WPM.com</p>
 
     </main>
-      <footer>
-          Developed by "Propietario" &copy; <?=date("Y")?>
-          <nav>
-              <a href=".././about/terms_and_conditions.php">Terms and Conditions</a>
-              <a href=".././about/cookies_policy.php">Cookies Policy</a>
-          </nav>
-      </footer>
+             <footer> Developed by Daniel Macias </footer>
   </body>
 </html>

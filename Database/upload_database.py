@@ -2,7 +2,7 @@ import sys
 import mysql.connector
 
 '''Connect DB'''
-connect = mysql.connector.connect(host='localhost', database='WPM', user='phpmyadmin', password='root')
+connect = mysql.connector.connect(host='localhost', database='wpm', user='phpmyadmin', password='root')
 
 '''Open File'''
 file = sys.argv[1]

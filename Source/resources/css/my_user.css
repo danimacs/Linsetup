@@ -1,4 +1,4 @@
-nav, header {
+header {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@ nav, header {
 }
 
 
-nav a, header a{
+header a{
     color: #8c8c8c;
     text-align: center;
     margin-left: 10px;
@@ -24,17 +24,20 @@ header input[type=submit]{
 }
 
 
-.buttons{
+.buttons a, button{
     text-decoration: none;
     color: white;
     background: gray;
     padding: 7px 14px;
+    border: 0;
+    font-size: 16px;
+    font-family: "Times New Roman";
 }
 
 
 h1{
     position: absolute;
-    font-size: 28px;
+    font-size: 30px;
     top: -2.4%;
     font-family: Poppins;
 }
@@ -42,6 +45,10 @@ h1{
 h1 a{
     text-decoration: none;
     color: black;
+}
+
+h2{
+    font-family: Poppins;
 }
 
 hr {
@@ -55,89 +62,27 @@ a{
     color: #8c8c8c;
     text-decoration: none;
 }
-.separate_articles{
-    height: 1px;
-    background-color: black;
-    border: none;
-    width: 408.88px;
-    margin-left: 0;
-}
-
-.searcher_header{
-    float: left;
-    margin: 0;
-}
-
-.searcher_header_input{
-    width: 69.8%;
-    background: #2c2c2c;
-    border-top: hidden;
-    border-right: hidden;
-    border-left: hidden;
-    border-bottom: 2px solid #222222;
-    margin-right: 2%;
-    height: 20px;
-    color: #8c8c8c;
-}
 
 header::placeholder{
     color: white;
 }
 
+.label_hidden{
+    border: 0;
+    width: 0.1px;
+    opacity: 0;
+    height: 0.1px;
+}
+
 body{
     /* Background pattern from Toptal Subtle Patterns */
-    background-image:url("../img/dark-honeycomb.png");
+    background-image:url("../img/qbkls.png");
     max-width: 50%;
     margin-left: 25%;
-}
-
-.media_entry{
-    height: 230px;
-}
-
-.aside-top a {
-    margin-left: 60px;
-    margin-top: -35px;
-    font-size: 130%;
-    color: #8c8c8c;
-    display: block;
-    text-align: left;
-    text-decoration: none;
-}
-
-.aside-bottom{
-    width: 250px;
-}
-
-.aside-bottom a {
-    padding: 6px 16px 10px 16px;
-    text-decoration: none;
-    font-size: 30px;
-    color: black;
-    display: block;
-    border-bottom: 1px black;
-    text-align: left;
-}
-
-.aside-left{
-    height: 100%;
-    width: 100px;
-    margin-left: 250px;
-}
-
-.aside-left a {
-    padding: 6px 16px 10px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: black;
-    display: block;
-    text-align: left;
+    margin-top: 1%;
 }
 
 
-.profile_picture{
-    border-radius: 50%
-}
 
 .my_data{
     float: right;
@@ -154,7 +99,7 @@ body{
 }
 
 footer{
-    width: 99%;
     bottom: 0;
     position: fixed;
+    margin-left: 60%;
 }

@@ -2,7 +2,7 @@ h1{
     font-family: Poppins;
     position: absolute;
     font-size: 30px;
-    margin-top: -0.5%;
+    margin-top: -0.8%;
 }
 
 h1 a{
@@ -10,8 +10,8 @@ h1 a{
     color: black;
 }
 
-.h2{
-    text-align: center;
+h2{
+    font-family: Poppins;
 }
 
 .signin_login{
@@ -21,26 +21,6 @@ h1 a{
 a{
     color: #8c8c8c;
     text-decoration: none;
-}
-
-header input[type=text]{
-    width: 50%;
-    background: #2c2c2c;
-    border-top: hidden;
-    border-right: hidden;
-    border-left: hidden;
-    border-bottom: 2px solid #222222;
-    margin-right: 2%;
-    height: 20px;
-    color: #8c8c8c;
-}
-
-header input[type=submit]{
-    background: #222222;
-    padding: 7px 10px;
-    border: 0;
-    text-align: center;
-    color: #8c8c8c;
 }
 
 header::placeholder{
@@ -53,14 +33,15 @@ header{
 
 body{
     /* Background pattern from Toptal Subtle Patterns */
-    background-image:url("../img/dark-honeycomb.png");
+    background-image:url("../img/qbkls.png");
     max-width: 50%;
     margin-left: 25%;
+    margin-top: 1%;
 }
 
 .signin, .login{
     margin-top: 5%;
-    background-image:url("../img/dark-honeycomb.png");
+    background-image:url("../img/qbkls.png");
     width: 35%;
 }
 
@@ -81,13 +62,11 @@ hr {
 }
 
 input{
-    background: #2c2c2c;
-    width: 100%;
-    border-top: hidden;
-    border-right: hidden;
-    border-left: hidden;
-    border-bottom: 2px solid #222222;
-    height: 22px;
+    width: 80%;
+    background: #d9d9d9;
+    border: hidden;
+    margin-right: 2%;
+    height: 20px;
     color: #8c8c8c;
 }
 
@@ -109,5 +88,11 @@ input[type=submit] {
 .password{
     width: 35%;
     float: right;
-    margin-top: -63.5%;
+    margin-top: -76%;
+}
+
+footer{
+    bottom: 0;
+    position: fixed;
+    margin-left: 60%;
 }

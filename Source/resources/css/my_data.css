@@ -27,6 +27,10 @@ h1 a{
     color: black;
 }
 
+h2{
+    font-family: Poppins;
+}
+
 hr {
     width: 100%;
     height: 1px;
@@ -51,11 +55,6 @@ a{
     display: block;
     text-align: left;
     text-decoration: none;
-}
-
-
-.profile_picture{
-    border-radius: 50%
 }
 
 
@@ -84,11 +83,8 @@ a{
 
 input[type=text], input[type=email], input[type=password]{
     width: 30%;
-   background: #2c2c2c;
-    border-top: hidden;
-    border-right: hidden;
-    border-left: hidden;
-    border-bottom: 2px solid #222222;
+    background: #d9d9d9;
+    border: hidden;
     margin-right: 2%;
     height: 20px;
     color: #8c8c8c;
@@ -104,14 +100,15 @@ input[type=submit] {
 }
 
 footer{
-    width: 99%;
     bottom: 0;
     position: fixed;
+    margin-left: 60%;
 }
 
 body{
     /* Background pattern from Toptal Subtle Patterns */
-    background-image:url("../img/dark-honeycomb.png");
+    background-image:url("../img/qbkls.png");
     max-width: 50%;
     margin-left: 25%;
+    margin-top: 1%;
 }

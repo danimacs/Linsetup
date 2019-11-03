@@ -17,7 +17,7 @@ if ($_POST){
     $login = mysqli_query($db, $sql);
 
     if ($login && mysqli_num_rows($login) == 0){
-        $_SESSION['errors']['login'] = "There is no such account";
+        $_SESSION['errors']['login'] = "Incorrect Login";
     }
 
     if ($login && mysqli_num_rows($login) == 1) {

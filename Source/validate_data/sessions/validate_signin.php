@@ -28,7 +28,7 @@
         $errors['password'] = "The password must have a minimum of 8 characters";
  	}
 
- 	if (empty($password_verify) && $password != $password_verify) {
+ 	if ($password != $password_verify) {
         $errors['password_verify'] = "The passwords do not match";
  	}
 

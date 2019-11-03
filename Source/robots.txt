@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 
-Sitemap: http://www.wpm.com/sitemap.xml
+Sitemap: http://www.linsetup.com/sitemap.xml

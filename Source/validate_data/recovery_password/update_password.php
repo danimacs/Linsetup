@@ -1,6 +1,6 @@
 <?php
-
-    require_once '../.././configs/connection.php';
+require_once '../.././configs/connection.php';
+require_once '../.././configs/functions.php';
 
 if (isset($_SESSION['user_identify'])){
     session_destroy();
@@ -27,21 +27,29 @@ if (isset($_SESSION['user_identify'])){
 
     if (count($errors) == 0){
 
-        $password_secure = password_hash($password, PASSWORD_BCRYPT, ['cost'=>15]);
+        $status = getStatus($db, $user, $token);
+        $status = mysqli_fetch_assoc($status);
 
-        $sql = "UPDATE users SET password = '$password_secure' WHERE id = $user";
-        mysqli_query($db, $sql);
+        if ($status['status'] == 1) {
 
-        $sql = "DELETE FROM tokens WHERE user = $user";
-        mysqli_query($db, $sql);
+            $password_secure = password_hash($password, PASSWORD_BCRYPT, ['cost' => 15]);
+
+            $sql = "UPDATE users SET password = '$password_secure' WHERE id = $user";
+            mysqli_query($db, $sql);
+
+            $sql = "DELETE FROM tokens WHERE user = $user";
+            mysqli_query($db, $sql);
 
 
-        $_SESSION['completed'] = "Your password is recovered";
-        header("Location: ../.././pages/login_signin.php");
+            $_SESSION['completed'] = "Your password is recovered";
+            header("Location: ../.././pages/login_signin.php");
+        }else{
+            header("Location: ../.././validate_data/recovery_password/recovery_password.php?user=$user&token=$token");
+        }
 
     }else{
         $_SESSION['errors'] = $errors;
-        header("Location: ../.././user/login_signin.php?user=$user&token=$token&recovery_password");
+        header("Location: ../.././user/recovery_password.php?user=$user&token=$token");
     }
 
 

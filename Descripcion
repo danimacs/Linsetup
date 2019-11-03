@@ -1,22 +1,28 @@
-Updates:
-Repair error -> restart count try when login
-Automatic login after registration
-Page of download
-Share Autoinstaller
-Change Theme
+LINSETUP:
 
-Source:
-Login and login
-Edit email, nickname, password
-Search packages and download a script to install them
-Terms and Conditions
-Cookies policy
-Save Autoinstaller
-Protection against brute force attacks
-Resolve SQLInjection
-Page of download
-Share Autoinstaller
+    Updates:
+    Integrate Bootstrap
+    Simplification -> Installation of the main software
+    Change of way to select the simplest software to reduce requests
+    Separate login and register of recovery password
+    Removed the search engine it is not necessary
+    Removed getpackets since it is not necessary
+    Name for autoinstaller
+
+    Source:
+    Login and login
+    Edit email, nickname, password
+    Recovery Password (Not Tested)
+    Terms and Conditions
+    Cookies policy
+    Save Autoinstaller
+    Protection against brute force attacks
+    Resolve SQLInjection
+    Page of download
+    Share Autoinstaller
+    Integrate Bootstrap
+    Simplification -> Installation of the main software
 
 
-Database:
-Script to upload available packages
+    Database:
+    File SQL to import DB

@@ -29,7 +29,7 @@
                  $_SESSION['completed'] = "The process was completed perfectly";
                  Header( 'Location: ../.././index.php' );
              }else{
-                     $_SESSION['errors'] = "The user already exists or the email already exists";
+                     $_SESSION['errors']['general'] = "The user already exists or the email already exists";
                  header('Location: ../.././user/my_data.php');
              }
      }else{

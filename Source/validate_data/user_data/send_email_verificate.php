@@ -41,7 +41,7 @@ if(is_int($user_id)){
           $mail->isSMTP();                                            // Set mailer to use SMTP
           $mail->Host       = '';                                    // Specify main and backup SMTP servers
           $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-          $mail->Username   = 'register@WPM.com';                  // SMTP username
+          $mail->Username   = 'register@linsetup.com';                  // SMTP username
           $mail->Password   = '';                                     // SMTP password
           $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
           $mail->Port       = '';                                    // TCP port to connect to
@@ -54,11 +54,11 @@ if(is_int($user_id)){
               // Content
               $mail->isHTML(true);
               $mail->Subject = 'Verificate Account';
-              $mail->Body = 'Hello ' . $user['user'] . ' <br/> Please, verificate your account do click -> <a href="www.wpm.com/validate_data/user_data/receive_email.php?user=' . $user_id . '&token=' . $token .'&action=verify'. '">Verificate Account</a>';
+              $mail->Body = 'Hello ' . $user['user'] . ' <br/> Please, verificate your account do click -> <a href="www.linsetup.com/validate_data/user_data/receive_email.php?user=' . $user_id . '&token=' . $token .'&action=verify'. '">Verificate Account</a>';
           }elseif ($_GET['action'] == "unlock"){
               $mail->isHTML(true);
               $mail->Subject = 'Unlock Account';
-              $mail->Body = 'Hello ' . $user['user'] . ' <br/> Please, unlock your account do click -> <a href="www.wpm.com/validate_data/user_data/receive_email.php?user=' . $user_id . '&token=' . $token .'&action=unlock'.'">Unlock Account</a>';
+              $mail->Body = 'Hello ' . $user['user'] . ' <br/> Please, unlock your account do click -> <a href="www.linsetup.com/validate_data/user_data/receive_email.php?user=' . $user_id . '&token=' . $token .'&action=unlock'.'">Unlock Account</a>';
           }
 
           $mail->send();

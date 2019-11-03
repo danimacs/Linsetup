@@ -8,19 +8,14 @@ if (isset($_POST)) {
 
     $errors = array();
 
-    $verify = password_verify($password_old, $user_database['password']);
-    if (!empty($password_old) || $verify) {
-        $password_old_validate = true;
-    }else{
-        $password_old_validate = false;
-        $errors['password_old'] = "La password anterior es erronia";
+    $verify = password_verify($password_old, $_SESSION['user_identify']['password']);
+
+    if (!$verify) {
+        $errors['password_old'] = "The password isn't correct";
     }
 
-    if (!empty($password_new)) {
-        $password_new_validate = true;
-    }else{
-        $password_new_validate = false;
-        $errors['password_new'] = "La password esta vacia";
+    if (empty($password_new)) {
+        $errors['password_new'] = "The password is empty";
     }
 
 
@@ -36,15 +31,15 @@ if (isset($_POST)) {
         if ($query_save){
             $_SESSION['user_identify']['password_new'] = $password_new;
             $_SESSION['completed'] = "Your password has been updated successfully";
-            Header( 'Location: ../.././user/my_profile.php' );
+            header( 'Location: ../.././index.php' );
         }else{
-            $_SESSION['errors'] = "Your password could not be saved successfully";
-            header('Location: ../.././user/change_password.php');
+            $_SESSION['errors']['general'] = "Your password could not be saved successfully";
+            header( 'Location: ../.././user/my_data.php' );
         }
 
     }else{
         $_SESSION['errors'] = $errors;
-        header('Location: ../.././user/change_password.php');
+        header( 'Location: ../.././user/my_data.php' );
     }
 
 }

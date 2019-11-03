@@ -30,7 +30,7 @@ if (isset($_SESSION['user_identify'])){
 
         $token = bin2hex(random_bytes(30));
 
-        $sql = "INSERT INTO tokens VALUE (null, $user_id, '$token',  NOW());";
+        $sql = "INSERT INTO tokens VALUE (null, $user_id, '$token', null, NOW());";
         mysqli_query($db, $sql);
 
 
@@ -47,31 +47,33 @@ if (isset($_SESSION['user_identify'])){
             $mail->isSMTP();                                            // Set mailer to use SMTP
             $mail->Host       = 'smtp.ionos.es';                        // Specify main and backup SMTP servers
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-            $mail->Username   = 'recovery_password@WPM.com';         // SMTP username
-            $mail->Password   = 'ZcCFzDNydwE3E8h';                      // SMTP password
+            $mail->Username   = 'recovery_password@linsetup.com';         // SMTP username
+            $mail->Password   = '';                                      // SMTP password
             $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
             $mail->Port       = 587;                                    // TCP port to connect to
 
             //Recipients
-            $mail->setFrom('recovery_password@WPM.com', 'WPM');
+            $mail->setFrom('recovery_password@linsetup.com', 'LINSETUP');
             $mail->addAddress($user['email'], $user['user']);     // Add a recipient
 
 
             // Content
             $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = 'Recovery Password';
-            $mail->Body    = 'Hello '.$user['user'] .' <br/> Please to recovery your password do click -> <a href="www.wpm.com/user/login_signin.php?user='.$user['id'].'&token='.$token.'.&recovery_password'.'">Recovery Password</a>';
+            $mail->Body    = 'Hello '.$user['user'] .' <br/> Please to recovery your password do click -> <a href="www.linsetup.com/validate_data/recovery_password/recovery_password.php?user='.$user['id'].'&token='.$token.'">Recovery Password</a>';
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();
             $_SESSION['completed'] = "Please check your email, it may be spam";
+            header("Location: ../.././pages/login_signin.php");
 
         } catch (Exception $e) {
             $_SESSION['errors'] = "There was an error sending the data";
+            header("Location: ../.././user/forgot_password.php");
         }
 
     }else{
         $_SESSION['errors'] = "There is no account with this email";
+        header("Location: ../.././user/forgot_password.php");
     }
 
-header("Location: ../.././user/login_signin.php");

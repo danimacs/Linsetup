@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-            <?php include_once '.././configs/meta.php'; ?>
-        <title>WPM</title>
-        <link rel="stylesheet" type="text/css" href="../resources/css/about.css">
+        <?php include_once '.././configs/meta.php'; ?>
+        <title>LINSETUP</title>
     </head>
 
-    <body>
-    <h1><a href="../index.php">WPM</a></h1>
+    <body class="container">
+    <h1><a href=".././index.php">LINSETUP</a></h1>
 
-    <br/>
-    <hr>
     <main>
         <h2>Terms and Conditions</h2>
 
@@ -18,7 +15,7 @@
         <p>Last updated: April 17, 2019</p>
 
 
-        <p>These Terms and Conditions ("Terms", "Terms and Conditions") govern your relationship with www.WPM.com website (the "Service") operated by WPM ("us", "we", or "our").</p>
+        <p>These Terms and Conditions ("Terms", "Terms and Conditions") govern your relationship with www.linsetup.com website (the "Service") operated by LINSETUP ("us", "we", or "our").</p>
 
         <p>Please read these Terms and Conditions carefully before using the Service.</p>
 
@@ -55,14 +52,14 @@
 
         <h2>Intellectual Property</h2>
 
-        <p>The Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of WPM and its licensors. The Service is protected by copyright, trademark, and other laws of both the  and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of WPM.</p>
+        <p>The Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of LINSETUP and its licensors. The Service is protected by copyright, trademark, and other laws of both the  and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of LINSETUP.</p>
 
 
         <h2>Links To Other Web Sites</h2>
 
-        <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by WPM.</p>
+        <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by LINSETUP.</p>
 
-        <p>WPM has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that WPM shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
+        <p>LINSETUP has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that LINSETUP shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
 
         <p>We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.</p>
 
@@ -76,14 +73,14 @@
 
         <h2>Limitation Of Liability</h2>
 
-        <p>In no game_session shall WPM, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Service; (ii) any conduct or content of any third party on the Service; (iii) any content obtained from the Service; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found to have failed of its essential purpose.</p>
+        <p>In no game_session shall LINSETUP, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Service; (ii) any conduct or content of any third party on the Service; (iii) any content obtained from the Service; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found to have failed of its essential purpose.</p>
 
 
         <h2>Disclaimer</h2>
 
         <p>Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance.</p>
 
-        <p>WPM its subsidiaries, affiliates, and its licensors do not warrant that a) the Service will function uninterrupted, secure or available at any particular time or location; b) any errors or defects will be corrected; c) the Service is free of viruses or other harmful components; or d) the results of using the Service will meet your requirements.</p>
+        <p>LINSETUP its subsidiaries, affiliates, and its licensors do not warrant that a) the Service will function uninterrupted, secure or available at any particular time or location; b) any errors or defects will be corrected; c) the Service is free of viruses or other harmful components; or d) the results of using the Service will meet your requirements.</p>
 
 
         <h2>Governing Law</h2>
@@ -104,9 +101,9 @@
 
         <p>If you have any questions about these Terms, please contact us.</p>
 
-        <p>contact@WPM.com</p>
+        <p>contact@linsetup.com</p>
 
     </main>
-             <footer> Developed by Daniel Macias </footer>
+             <footer class="text-right"> Developed by Daniel Macias </footer>
   </body>
 </html>

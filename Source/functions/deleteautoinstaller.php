@@ -11,6 +11,8 @@ if(is_int($id)){
     mysqli_query($db, $sql);
 }
 
+$_SESSION['completed'] = "The autoinstaller was successfully deleted";
+
 header('Location: .././index.php');
 
 ?>

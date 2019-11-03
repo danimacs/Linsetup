@@ -17,14 +17,14 @@ if (isset($_SESSION['user_identify'])){
             $sql = "UPDATE tokens SET status = 1 WHERE token = '$token' AND user = $user";
             mysqli_query($db, $sql);
 
-            header("Location: ../.././user/login_signin.php?user=$user&token=$token&action=recovery");
+            header("Location: ../.././user/recovery_password.php?user=$user&token=$token");
 
         }else{
-            $_SESSION['errors']['recovery_password'] = "The data was not sent correctly, please retry";
-            header("Location: ../.././user/login_signin.php?user=$user&token=$token");
+            $_SESSION['errors'] = "The data was not sent correctly, please retry";
+            header("Location: ../.././user/recovery_password.php");
         }
 
     }else{
-        $_SESSION['errors']['recovery_password'] = "The data was not sent correctly, please retry";
-        header("Location: ../.././user/login_signin.php?user=$user&token=$token");
+        $_SESSION['errors'] = "The data was not sent correctly, please retry";
+        header("Location: ../.././user/recovery_password.php");
     }

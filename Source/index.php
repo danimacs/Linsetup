@@ -1,119 +1,142 @@
-<?php include_once './functions/getpackets.php'; ?>
+<?php
+include_once './configs/functions.php';
+include_once './configs/connection.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <?php include_once './configs/meta.php'; ?>
-        <title>WPM</title>
-        <link rel="stylesheet" type="text/css" href="./resources/css/index.css">
+        <title>LINSETUP</title>
     </head>
+    <body class="container">
 
-   <body>
-       <?php if (isset($_SESSION['errors'])) : ?>
-           <div class="errors">
-               <?=$_SESSION['errors'];?><br/><br/>
-           </div>
-       <?php endif;?>
-       <?php if(isset($_SESSION['completed'])): ?>
-           <div class="completed">
-               <?=$_SESSION['completed']?><br/><br/>
-           </div>
-       <?php endif; ?>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-light">
 
-        <h1><a href="./index.php">WPM</a></h1>
+            <ul class="list-unstyled">
 
-        <?php if (isset($_SESSION['user_identify'])): ?>
-        <header class="data">
-            <a href="user/my_user.php"><?=$_SESSION['user_identify']['user'];?></a>
-            <a href="user/my_data.php">Settings</a>
-            <a href="./configs/logout.php">Sign Off</a>
-        </header>
-        <?php endif; ?>
+                <li class="nav-item">
+                    <h1><a href="./index.php" class="nav-link">LINSETUP</a></h1>
+                </li>
 
-       <?php if (!isset($_SESSION['user_identify'])): ?>
-           <a href="pages/login_signin.php" class="signin_login">Login | Signin</a>
-       <?php endif; ?>
 
-       <header>
-        <form method="POST">
-            <input type="text" name="searcher" placeholder="Searcher:">
-            <input type="checkbox" value="1" name="complement">
-            <input type="submit" value="Searcher:">
-        </form>
-        </header>
-       <hr/>
+               <?php if (isset($_SESSION['user_identify'])): ?>
+                 <li class="nav-item text-right">
+                    <a href="user/my_user.php" class="nav-link"><?=$_SESSION['user_identify']['user'];?></a>
+                    <a href="user/my_data.php" class="nav-link">Settings</a>
+                    <a href="./configs/logout.php" class="nav-link">Sign Off</a>
+                </li>
+                <?php endif; ?>
 
-        <div class="list_software">
-            <?php
-            $long = count($_SESSION['clickeds']);
-            $long--;
-            for ($i = 0; $i <= $long; $i++) {
-                $namesclickeds = searcherNamePacketsFromID($db, $_SESSION['clickeds'][$i]);
-                $nameclickeds = mysqli_fetch_assoc($namesclickeds);
-                $list = implode(" ", $nameclickeds);
-                $id = $_SESSION['clickeds'][$i];
-                $issetarray = array_search($_SESSION['clickeds'][$i], $_SESSION['clickeds']);
-                echo "<a href='./functions/clickeds.php?id=$id&action=delete&position=$issetarray'>".$list."</a>"."<br/>"."<br/>";
-            } ?>
-        </div>
+                <?php if (!isset($_SESSION['user_identify'])): ?>
+                <li class="nav-item text-right">
+                    <a href="./pages/login_signin.php" class="nav-link">Login | Signin</a>
+                </li>
+                <?php endif; ?>
+            </ul>
+        </nav>
 
-        <div class="software">
-            <?php
-            if (!isset($_POST['searcher']) || empty($_POST['searcher'])):
-                if (!empty($mostdownloads)):
-                    while($mostdownload = mysqli_fetch_assoc($mostdownloads)):
+        <?php if (isset($_SESSION['completed'])) : ?>
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <?=$_SESSION['completed'];?><br/><br/>
+            </div>
+        <?php endif;?>
 
-                        echo $mostdownload['name'];
 
-                        $issetarray = array_search($mostdownload['id'], $_SESSION['clickeds']);
-                        if ($issetarray == false && $issetarray !== 0): ?>
-                            <a href="./functions/clickeds.php?id=<?=$mostdownload['id']?>&action=add">ADD</a>
-                        <?php else: ?>
-                            <a href="./functions/clickeds.php?id=<?=$mostdownload['id']?>&action=delete&position=<?=$issetarray?>">DELETE</a>
-                        <?php endif; ?><br/><br/>
+        <?php if (isset($_SESSION['errors'])) : ?>
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <?=$_SESSION['errors'];?><br/><br/>
+            </div>
+        <?php endif;?>
+
+        <form method="POST" action="./functions/createautoinstaller.php">
+            <div class="row">
+                <div class="col-md-6">
+                    <?php
+                    $categorieshead = searcherCategorieshead($db);
+                    if (!empty($categorieshead)):
+                                while($categoryhead = mysqli_fetch_assoc($categorieshead)):
+                        ?>
+                                    <ul class="homepage-app-section">
+                                    <h4><?=$categoryhead['name']?></h4>
+                                    <?php
+                                    $softwares = getSoftware($db, $categoryhead['id']);
+                                    if (!empty($softwares)):
+                                    while($software = mysqli_fetch_assoc($softwares)):
+                                    ?>
+
+                                    <li class="list-unstyled">
+                                        <input type="checkbox" name="<?=$software['id']?>">
+                                        <!--<img src="./resources/img/logos/<?=$software['logo']?>">-->
+                                        <label class="list-unstyled"><?=$software['name']?></label>
+                                    </li>
+
+                                    <?php
+                                        endwhile;
+                                    endif;
+                                    ?>
+                                    </ul>
 
                         <?php
-                    endwhile;
-                endif;
-            endif;
-            ?>
-        </div>
+                        endwhile;
+                        endif;
+                        ?>
+                </div>
 
-        <div class="software">
-            <?php
-            if (!empty($searchers)):
-                if (mysqli_num_rows($searchers) < 1): ?>
-                    <p>No results found</p>
-                <?php  endif; ?>
-                <?php while($searcher = mysqli_fetch_assoc($searchers)):
+                <div class="col-md-6">
+                <?php
+                $categoriesfooter = searcherCategoriesfooter($db);
+                if (!empty($categoriesfooter)):
+                        while($categoryfooter = mysqli_fetch_assoc($categoriesfooter)):
+                ?>
+                            <ul class="homepage-app-section">
+                            <h4><?=$categoryfooter['name']?></h4>
+                            <?php
+                            $softwares = getSoftware($db, $categoryfooter['id']);
+                            if (!empty($softwares)):
+                            while($software = mysqli_fetch_assoc($softwares)):
+                            ?>
 
-                echo $searcher['name'];
+                            <li class="list-unstyled">
+                                <input type="checkbox"  name="<?=$software['id']?>">
+                                <!--<img src="./resources/img/logos/<?=$software['logo']?>">-->
+                                <label class="list-unstyled"><?=$software['name']?></label>
+                            </li>
+                            <?php
+                                endwhile;
+                            endif;
+                            ?>
 
-                $issetarray = array_search($searcher['id'], $_SESSION['clickeds']);
-
-                if ($issetarray == false && $issetarray !== 0): ?>
-                    <a href="./functions/clickeds.php?id=<?=$searcher['id']?>&action=add">ADD</a>
-                <?php else: ?>
-                    <a href="./functions/clickeds.php?id=<?=$searcher['id']?>&action=delete&position=<?=$issetarray?>">DELETE</a>
-                <?php endif; ?><br/><br/>
+                            <?php if($categoryfooter['id'] == 6):;?>
+                                <br/>
+                                <label for="commands">Put commands:</label>
+                                <textarea rows="4" cols="50" name="commands" placeholder="$"></textarea>
+                            <?php endif; ?>
+                            </ul>
 
                 <?php
-            endwhile;
-            endif;?>
-        </div>
+                endwhile;
+                endif;
+                ?>
+                </div>
+            </div><br/>
 
+            <?php if (isset($_SESSION['user_identify'])): ?>
+            <div class="form-group">
+                <label for="save_autoinstaller">Name of Autoinstaller:</label>
+                <input type="text" name="save_autoinstaller" class="form-control" autofocus/><br/>
+            </div>
+
+            <?php endif; ?>
+
+            <input type="submit" value="Download Autoinstaller" class="btn btn-primary btn-block">
+
+        </form>
         <br/>
-        <?php
-        if (!empty($_SESSION['clickeds'])): ?>
-            <a href="./functions/createautoinstaller.php" class="buttons">Download Autoinstaller</a>
-        <?php endif; ?>
 
-       <?php
-        if (!empty($_SESSION['clickeds']) && isset($_SESSION['user_identify'])): ?>
-            <a href="./functions/saveautoinstaller.php" class="buttons">Save Autoinstaller</a>
-        <?php endif; ?>
+           <footer class="text-right"> Developed by Daniel Macias </footer>
 
-       <footer> Developed by Daniel Macias </footer>
-
-    <?php deleteErrors(); ?>
+        <?php deleteErrors(); ?>
   </body>
 </html>

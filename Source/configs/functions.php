@@ -30,22 +30,6 @@ function deleteErrors (){
     }
     return $deleted;
 }
-
-function getEntriesByIDUser($connection, $id){
-	
-    $sql = "SELECT * FROM entries WHERE user_id = $id ORDER BY create_datetime DESC";
-    $entry = mysqli_query($connection, $sql);
-
-    $result = array();
-     if($entry && mysqli_num_rows($entry) >= 1){
-         $result = $entry;
-     }
-
-    return $entry;
-		
-}
-
-
 function getUserFromId($connection, $id){
 	
     $sql = "SELECT * FROM users WHERE id= $id";
@@ -84,9 +68,8 @@ function searcherPacketsFromID($conncetion, $id)
 
 }
 
-function searcherNamePacketsFromID($conncetion, $id)
-{
-    $sql = "SELECT name FROM software WHERE id = '$id'";
+function searcherCategorieshead($conncetion){
+    $sql = "SELECT * FROM categories ORDER BY id ASC LIMIT 5";
     $searchs = mysqli_query($conncetion, $sql);
 
     $result = array();
@@ -98,9 +81,8 @@ function searcherNamePacketsFromID($conncetion, $id)
 
 }
 
-function searcherPacketsMostDownloads($conncetion)
-{
-    $sql = "SELECT * FROM software ORDER BY download DESC LIMIT 20";
+function searcherCategoriesfooter($conncetion){
+    $sql = "SELECT * FROM categories ORDER BY id DESC LIMIT 4";
     $searchs = mysqli_query($conncetion, $sql);
 
     $result = array();
@@ -112,25 +94,9 @@ function searcherPacketsMostDownloads($conncetion)
 
 }
 
-function searcherPackets($conncetion, $search)
-{
-
-    $sql = "SELECT * FROM software WHERE name LIKE '$search' ORDER BY download DESC";
-    $searchs = mysqli_query($conncetion, $sql);
-
-    $result = array();
-    if ($searchs && mysqli_num_rows($searchs) >= 1) {
-        $result = $searchs;
-    }
-
-    return $searchs;
-
-}
-
-function searcherPacketsComplements($conncetion, $search)
-{
-
-    $sql = "SELECT * FROM software WHERE name LIKE '%$search%' ORDER BY download DESC LIMIT 20";
+function getSoftware(
+    $conncetion, $id_category){
+    $sql = "SELECT * FROM software WHERE category = $id_category";
     $searchs = mysqli_query($conncetion, $sql);
 
     $result = array();
@@ -157,10 +123,23 @@ function getsaveautoinstallers($conncetion, $user)
 
 }
 
-function getsaveautoinstaller($conncetion, $id)
-{
+function getsaveautoinstaller($conncetion, $id){
 
     $sql = "SELECT * FROM saveautoinstaller WHERE id = $id";
+    $searchs = mysqli_query($conncetion, $sql);
+
+    $result = array();
+    if ($searchs && mysqli_num_rows($searchs) >= 1) {
+        $result = $searchs;
+    }
+
+    return $searchs;
+
+}
+
+function getStatus($conncetion, $user, $token){
+
+    $sql = "SELECT * FROM tokens WHERE user = $user AND token = $token";
     $searchs = mysqli_query($conncetion, $sql);
 
     $result = array();

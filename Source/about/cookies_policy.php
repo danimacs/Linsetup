@@ -2,19 +2,17 @@
 <html lang="en">
     <head>
         <?php include_once '.././configs/meta.php'; ?>
-        <title>WPM</title>
-        <link rel="stylesheet" type="text/css" href="../resources/css/about.css">
+        <title>LINSETUP</title>
     </head>
-    <body>
-    <h1><a href=".././index.php">WPM</a></h1><br/>
-    <hr>
+    <body class="container">
+    <h1><a href=".././index.php">LINSETUP</a></h1>
 
         <main>
             <h2>Cookies Policy</h2>
 
             <p>Last updated: April 17, 2019</p>
 
-            <p>WPM ("us", "we", or "our") uses cookies on the www.WPM.com website (the "Service"). By using the Service, you consent to the use of cookies.</p>
+            <p>LINSETUP ("us", "we", or "our") uses cookies on the www.linsetup.com website (the "Service"). By using the Service, you consent to the use of cookies.</p>
 
             <p>Our Cookies Policy explains what cookies are, how we use cookies, how third-parties we may partner with may use cookies on the Service, your choices regarding cookies and further information about cookies.</p>
 
@@ -24,7 +22,7 @@
 
             <p>Cookies can be "persistent" or "session" cookies. Persistent cookies remain on your personal computer or mobile device when you go offline, while session cookies are deleted as soon as you close your web browser.</p>
 
-            <h2>How WPM uses cookies</h2>
+            <h2>How LINSETUP uses cookies</h2>
 
             <p>When you use and access the Service, we may place a number of cookies files in your web browser.</p>
 
@@ -97,6 +95,6 @@
                 </li>
             </ul>
         </main>
-                 <footer> Developed by Daniel Macias </footer>
+                 <footer class="text-right"> Developed by Daniel Macias </footer>
         </body>
 </html>

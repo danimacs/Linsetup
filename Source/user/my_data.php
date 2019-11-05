@@ -29,8 +29,7 @@ require_once '.././configs/functions.php';
                  </li>
              <?php endif; ?>
 
-             <?php if (!isset($_SESSION['user_identify'])): ?>
-                 <li class="nav-item">
+             <?php if (!isset($_SESSION['user_identify'])): ?><li class="nav-item text-right">
                      <a href=".././pages/login_signin.php" class="nav-link">Login | Signin</a>
                  </li>
              <?php endif; ?>
@@ -68,7 +67,7 @@ require_once '.././configs/functions.php';
                         <?php echo isset($_SESSION['errors']) ? showErrors($_SESSION['errors'], 'email') : ''; ?>
                     </div>
 
-                    <input type="submit" value="Actualizar" name="submit" class="btn btn-secondary"/>
+                    <input type="submit" value="Actualizar" name="submit" class="btn btn-primary"/>
                 </form>
         </article>
 
@@ -89,7 +88,7 @@ require_once '.././configs/functions.php';
                     <?php echo isset($_SESSION['errors']) ? showErrors($_SESSION['errors'], 'password_new') : ''; ?>
                 </div>
 
-                <input type="submit" value="Actualizar" name="submit" class="btn btn-outline-secondary"/>
+                <input type="submit" value="Actualizar" name="submit" class="btn btn-primary"/>
             </form>
         </article>
         <?php deleteErrors(); ?>

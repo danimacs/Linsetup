@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 03-11-2019 a las 03:03:04
--- Versión del servidor: 5.7.27-0ubuntu0.18.04.1
--- Versión de PHP: 7.3.11-1+ubuntu18.04.1+deb.sury.org+1
+-- Temps de generació: 05-11-2019 a les 08:51:30
+-- Versió del servidor: 5.7.27-0ubuntu0.18.04.1
+-- Versió de PHP: 7.2.24-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `linsetup`
+-- Base de dades: `linsetup`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categories`
+-- Estructura de la taula `categories`
 --
 
 CREATE TABLE `categories` (
@@ -32,7 +32,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `categories`
+-- Bolcant dades de la taula `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `saveautoinstaller`
+-- Estructura de la taula `saveautoinstaller`
 --
 
 CREATE TABLE `saveautoinstaller` (
@@ -58,13 +58,14 @@ CREATE TABLE `saveautoinstaller` (
   `user` int(255) NOT NULL,
   `software` varchar(255) NOT NULL,
   `commands` longtext,
+  `share` bit(1) NOT NULL DEFAULT b'0',
   `create_datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `software`
+-- Estructura de la taula `software`
 --
 
 CREATE TABLE `software` (
@@ -79,7 +80,7 @@ CREATE TABLE `software` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `software`
+-- Bolcant dades de la taula `software`
 --
 
 INSERT INTO `software` (`id`, `name`, `logo`, `category`, `add_repository`, `name_packet`, `download`, `source`) VALUES
@@ -122,7 +123,7 @@ INSERT INTO `software` (`id`, `name`, `logo`, `category`, `add_repository`, `nam
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tokens`
+-- Estructura de la taula `tokens`
 --
 
 CREATE TABLE `tokens` (
@@ -136,7 +137,7 @@ CREATE TABLE `tokens` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Estructura de la taula `users`
 --
 
 CREATE TABLE `users` (
@@ -153,38 +154,38 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Índices para tablas volcadas
+-- Indexos per taules bolcades
 --
 
 --
--- Indices de la tabla `categories`
+-- Index de la taula `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `saveautoinstaller`
+-- Index de la taula `saveautoinstaller`
 --
 ALTER TABLE `saveautoinstaller`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_users_saveautoinstaller` (`user`);
 
 --
--- Indices de la tabla `software`
+-- Index de la taula `software`
 --
 ALTER TABLE `software`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_category_software` (`category`);
 
 --
--- Indices de la tabla `tokens`
+-- Index de la taula `tokens`
 --
 ALTER TABLE `tokens`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_users_token` (`user`);
 
 --
--- Indices de la tabla `users`
+-- Index de la taula `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -192,52 +193,52 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT per les taules bolcades
 --
 
 --
--- AUTO_INCREMENT de la tabla `categories`
+-- AUTO_INCREMENT per la taula `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT de la tabla `saveautoinstaller`
+-- AUTO_INCREMENT per la taula `saveautoinstaller`
 --
 ALTER TABLE `saveautoinstaller`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `software`
+-- AUTO_INCREMENT per la taula `software`
 --
 ALTER TABLE `software`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
--- AUTO_INCREMENT de la tabla `tokens`
+-- AUTO_INCREMENT per la taula `tokens`
 --
 ALTER TABLE `tokens`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT per la taula `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 --
--- Restricciones para tablas volcadas
+-- Restriccions per taules bolcades
 --
 
 --
--- Filtros para la tabla `saveautoinstaller`
+-- Restriccions per la taula `saveautoinstaller`
 --
 ALTER TABLE `saveautoinstaller`
   ADD CONSTRAINT `fk_users_saveautoinstaller` FOREIGN KEY (`user`) REFERENCES `users` (`id`);
 
 --
--- Filtros para la tabla `software`
+-- Restriccions per la taula `software`
 --
 ALTER TABLE `software`
   ADD CONSTRAINT `fk_category_software` FOREIGN KEY (`category`) REFERENCES `categories` (`id`);
 
 --
--- Filtros para la tabla `tokens`
+-- Restriccions per la taula `tokens`
 --
 ALTER TABLE `tokens`
   ADD CONSTRAINT `fk_users_token` FOREIGN KEY (`user`) REFERENCES `users` (`id`);

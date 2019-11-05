@@ -31,9 +31,9 @@ if ($saveautoinstaller){
     $user = $_SESSION['user_identify']['id'];
     $list = implode(" ", $software);
     if ($commands) {
-        $sql = "INSERT INTO saveautoinstaller VALUE (null, '$saveautoinstaller', $user, '$list', '$commands', NOW())";
+        $sql = "INSERT INTO saveautoinstaller VALUE (null, '$saveautoinstaller', $user, '$list', '$commands', 0, NOW())";
     }else{
-        $sql = "INSERT INTO saveautoinstaller VALUE (null, '$saveautoinstaller', $user, '$list', null ,NOW())";
+        $sql = "INSERT INTO saveautoinstaller VALUE (null, '$saveautoinstaller', $user, '$list', null, 0, NOW())";
     }
 
     mysqli_query($db, $sql);

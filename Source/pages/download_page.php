@@ -34,7 +34,7 @@ if (empty($_SESSION['clickeds'])){
              <?php endif; ?>
 
              <?php if (!isset($_SESSION['user_identify'])): ?>
-                 <li class="nav-item">
+                 <li class="nav-item text-right">
                      <a href=".././pages/login_signin.php" class="nav-link">Login | Signin</a>
                  </li>
              <?php endif; ?>
@@ -82,7 +82,7 @@ if (empty($_SESSION['clickeds'])){
                 <p>yes | ./autoinstaller.sh</p>
             </div><br/>
 
-            <a href=".././functions/autoinstaller.sh" class="buttons" download>Download Autoinstaller</a>
+            <a href=".././functions/autoinstaller.sh" class="btn btn-primary" download>Download Autoinstaller</a>
 
         <?php deleteErrors(); ?>
         <footer class="text-right"> Developed by Daniel Macias </footer>

@@ -110,7 +110,7 @@ include_once './configs/connection.php';
 
                             <?php if($categoryfooter['id'] == 6):;?>
                                 <br/>
-                                <label for="commands">Put commands:</label>
+                                <label for="commands">Put commands:</label><br/>
                                 <textarea rows="4" cols="50" name="commands" placeholder="$"></textarea>
                             <?php endif; ?>
                             </ul>

@@ -30,9 +30,9 @@ require_once '.././configs/isset_session.php';
                  <?php endif; ?>
 
                  <?php if (!isset($_SESSION['user_identify'])): ?>
-                     <li class="nav-item">
-                         <a href=".././pages/login_signin.php" class="nav-link">Login | Signin</a>
-                     </li>
+                    <li class="nav-item text-right">
+                     <a href=".././pages/login_signin.php" class="nav-link">Login | Signin</a>
+                 </li>
                  <?php endif; ?>
 
              </ul>
@@ -62,7 +62,8 @@ require_once '.././configs/isset_session.php';
 
                         <a href=".././functions/downloadautoinstaller.php?id=<?=$autoinstaller['id']?>" class="btn btn-primary">Download Autoinstaller</a>
                         <a href=".././functions/deleteautoinstaller.php?id=<?=$autoinstaller['id']?>" class="btn btn-primary">Delete Autoinstaller</a>
-                        <button onclick="fcopy(<?=$autoinstaller['id']?>)" class="btn btn-primary">Share</button>
+                        <a href=".././configs/update_share.php?id=<?=$autoinstaller['id']?>" onclick="fcopy(<?=$autoinstaller['id']?>)" class="btn btn-primary" >Generate Link</a>
+
                     </div>
 
                     <input type="text" style="opacity: 0" id="<?=$autoinstaller['id']?>" value="www.linsetup.com/functions/downloadautoinstaller.php?id=<?=$autoinstaller['id']?>">

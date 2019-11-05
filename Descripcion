@@ -1,13 +1,8 @@
 LINSETUP:
 
     Updates:
-    Integrate Bootstrap
-    Simplification -> Installation of the main software
-    Change of way to select the simplest software to reduce requests
-    Separate login and register of recovery password
-    Removed the search engine it is not necessary
-    Removed getpackets since it is not necessary
-    Name for autoinstaller
+    Added privacy when sharing autoinstaller
+
 
     Source:
     Login and login

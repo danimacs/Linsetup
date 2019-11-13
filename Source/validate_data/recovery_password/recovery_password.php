@@ -1,5 +1,6 @@
 <?php
 require_once '../.././configs/connection.php';
+
 if (isset($_SESSION['user_identify'])){
     session_destroy();
 }

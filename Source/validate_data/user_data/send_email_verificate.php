@@ -1,5 +1,6 @@
 <?php
 require_once '../.././configs/connection.php';
+require_once '../.././configs/passwords.php';
 require_once '../.././configs/functions.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -39,15 +40,15 @@ if(is_int($user_id)){
           $mail->CharSet = 'UTF-8';
           $mail->SMTPDebug = 0;                                       // Enable verbose debug output
           $mail->isSMTP();                                            // Set mailer to use SMTP
-          $mail->Host       = '';                                    // Specify main and backup SMTP servers
+          $mail->Host       = 'smtp.ionos.es';                        // Specify main and backup SMTP servers
           $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-          $mail->Username   = 'register@linsetup.com';                  // SMTP username
-          $mail->Password   = '';                                     // SMTP password
+          $mail->Username   = 'support@linsetup.com';                  // SMTP username
+          $mail->Password   = $mail;                                     // SMTP password
           $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
-          $mail->Port       = '';                                    // TCP port to connect to
+          $mail->Port       = 587;                                    // TCP port to connect to
 
           //Recipients
-          $mail->setFrom('¡¡', '¡');
+          $mail->setFrom('support@linsetup.com', 'Support Linsetup');
           $mail->addAddress($user['email'], $user['user']);     // Add a recipient
 
           if ($_GET['action'] == "signin") {

@@ -29,3 +29,4 @@ if (isset($_SESSION['user_identify'])){
         $_SESSION['errors'] = "The data was not sent correctly, please retry";
         header("Location: ../.././user/recovery_password.php");
     }
+?>

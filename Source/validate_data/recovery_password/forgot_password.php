@@ -6,51 +6,46 @@ require_once '../.././configs/functions.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../.././vendor/phpmailer/phpmailer/src/Exception.php';
-require '../.././vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require '../.././vendor/phpmailer/phpmailer/src/SMTP.php';
+require '../.././PHPMailer/src/Exception.php';
+require '../.././PHPMailer/src/PHPMailer.php';
+require '../.././PHPMailer/src/SMTP.php';
 
 if (isset($_SESSION['user_identify'])){
     session_destroy();
 }
 
 
-    $email_user = isset($_POST['email_user']) ?  mysqli_real_escape_string($db, $_POST['email_user']) : false;
+$email_user = isset($_POST['email_user']) ?  mysqli_real_escape_string($db, $_POST['email_user']) : false;
 
-    if (filter_var($email_user, FILTER_VALIDATE_EMAIL)) {
-        $sql = "SELECT * FROM users WHERE email = '$email_user'";
-    }else{
-        $sql = "SELECT * FROM users WHERE user = '$email_user'";
-    }
+if (filter_var($email_user, FILTER_VALIDATE_EMAIL)) {
+    $sql = "SELECT * FROM users WHERE email = '$email_user'";
+}else{
+    $sql = "SELECT * FROM users WHERE user = '$email_user'";
+}
 
-    $user = mysqli_query($db, $sql);
-    $user = mysqli_fetch_assoc($user);
+$user = mysqli_query($db, $sql);
+$user = mysqli_fetch_assoc($user);
 
-    if (!empty($user)){
-        $user_id = $user['id'];
+if (!empty($user)){
+    $user_id = (int)$user['id'];
 
-        $token = bin2hex(random_bytes(30));
+    $token = bin2hex(random_bytes(30));
 
-        $sql = "INSERT INTO tokens VALUE (null, $user_id, '$token', null, NOW());";
-        mysqli_query($db, $sql);
-
-
-// Load Composer's autoloader
-        require '../../vendor/autoload.php';
+    $sql = "INSERT INTO tokens VALUE (null, $user_id, '$token', null, NOW());";
+    mysqli_query($db, $sql);
 
 // Instantiation and passing `true` enables exceptions
         $mail = new PHPMailer(true);
 
         try {
             //Server settings
-            $mail->CharSet = 'UTF-8';
             $mail->SMTPDebug = 0;                                       // Enable verbose debug output
-            $mail->isSMTP();                                            // Set mailer to use SMTP
-            $mail->Host       = 'smtp.ionos.es';                        // Specify main and backup SMTP servers
+            $mail->isSMTP();                                            // Send using SMTP
+            $mail->Host       = 'smtp.ionos.es';                        // Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-            $mail->Username   = 'support@linsetup.com';         // SMTP username
-            $mail->Password   = $mail;                                      // SMTP password
-            $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
+            $mail->Username   = 'support@linsetup.com';                 // SMTP username
+            $mail->Password   = $mail_password;                         // SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
             $mail->Port       = 587;                                    // TCP port to connect to
 
             //Recipients
@@ -66,7 +61,6 @@ if (isset($_SESSION['user_identify'])){
 
             $mail->send();
             $_SESSION['completed'] = "Please check your email, it may be spam";
-            header("Location: ../.././pages/login_signin.php");
 
         } catch (Exception $e) {
             $_SESSION['errors'] = "There was an error sending the data";
@@ -78,3 +72,5 @@ if (isset($_SESSION['user_identify'])){
         header("Location: ../.././user/forgot_password.php");
     }
 
+header("Location: ../.././pages/login_signin.php");
+?>

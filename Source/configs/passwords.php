@@ -1,2 +1,3 @@
 <?php
-$mail = null;
+$mail_password = null;
+?>

@@ -12,6 +12,5 @@ if (is_int($id)){
 
 }
 
-
 header('Location: .././user/my_user.php');
-
+?>

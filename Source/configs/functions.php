@@ -137,20 +137,6 @@ function getsaveautoinstaller($connection, $id){
 
 }
 
-function getStatus($connection, $user, $token){
-
-    $sql = "SELECT * FROM tokens WHERE user = $user AND token = $token";
-    $searchs = mysqli_query($connection, $sql);
-
-    $result = array();
-    if ($searchs && mysqli_num_rows($searchs) >= 1) {
-        $result = $searchs;
-    }
-
-    return $searchs;
-
-}
-
 ?>
 
 

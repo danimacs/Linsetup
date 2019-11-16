@@ -45,6 +45,6 @@ include_once '../configs/functions.php';
             <input type="submit" value="Sign Up" name="submit" class="btn btn-primary"/>
 
         </form>
-
+        <?php deleteErrors();?>
     </body>
 </html>

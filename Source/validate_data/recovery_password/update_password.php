@@ -6,7 +6,7 @@ if (isset($_SESSION['user_identify'])){
     session_destroy();
 }
 
-    $user = isset($_GET['user']) ?  mysqli_real_escape_string($db, $_GET['user']) : false;
+    $user = (int)$_GET['user'];
     $token = isset($_GET['token']) ?  mysqli_real_escape_string($db, $_GET['token']) : false;
     $password = isset($_POST['password']) ?  mysqli_real_escape_string($db, $_POST['password']) : false;
     $password_verify = isset($_POST['password_verify']) ?  mysqli_real_escape_string($db, $_POST['password_verify']) : false;
@@ -27,11 +27,11 @@ if (isset($_SESSION['user_identify'])){
 
     if (count($errors) == 0){
 
-        $status = getStatus($db, $user, $token);
+        $sql = "SELECT * FROM tokens WHERE user = $user AND token = '$token'";
+        $status = mysqli_query($db, $sql);
         $status = mysqli_fetch_assoc($status);
 
         if ($status['status'] == 1) {
-
             $password_secure = password_hash($password, PASSWORD_BCRYPT, ['cost' => 15]);
 
             $sql = "UPDATE users SET password = '$password_secure' WHERE id = $user";
@@ -51,10 +51,4 @@ if (isset($_SESSION['user_identify'])){
         $_SESSION['errors'] = $errors;
         header("Location: ../.././user/recovery_password.php?user=$user&token=$token");
     }
-
-
-
-
-
-
-
+?>

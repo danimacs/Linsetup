@@ -65,7 +65,7 @@
 
 
 
-             header("Location: ../.././validate_data/user_data/send_email_verificate.php?user_id=$user_id&from=signin");
+             header("Location: ../.././validate_data/user_data/send_email_verificate.php?user_id=$user_id&action=signin");
 
          }else{
              $_SESSION['errors'] = $errors;
@@ -76,5 +76,4 @@
         $_SESSION['errors'] = "There was an error sending the data";
         header("Location: ../.././pages/login_signin.php");
  }
-
-
+?>

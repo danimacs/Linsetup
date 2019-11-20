@@ -35,7 +35,8 @@ if (empty($_SESSION['clickeds'])){
 
              <?php if (!isset($_SESSION['user_identify'])): ?>
                  <li class="nav-item text-right">
-                     <a href=".././pages/login_signin.php" class="nav-link">Login | Signin</a>
+                     <a href="signin.php" class="btn btn-primary">Sign in</a>
+                     <a href="login.php" class="btn btn-primary">Login</a>
                  </li>
              <?php endif; ?>
 
@@ -56,16 +57,17 @@ if (empty($_SESSION['clickeds'])){
             </div>
         <?php endif; ?>
 
-            <div class="list-unstyled">
+                <label class="list-unstyled"><?=$_SESSION['clickeds']['commands']?></label>
+                <div class="list-unstyled">
                 <?php
-                $long = count($_SESSION['clickeds']);
+                $long = count($_SESSION['clickeds']['software']);
                 $long--;
                 for ($i = 0; $i <= $long; $i++):
-                $namesclickeds = searcherPacketsFromID($db, $_SESSION['clickeds'][$i]);
+                $namesclickeds = searcherPacketsFromID($db, $_SESSION['clickeds']['software'][$i]);
                 $nameclickeds = mysqli_fetch_assoc($namesclickeds);
                 ?>
                     <div class="list-unstyled">
-                       <!--<img src="./resources/img/logos/<?=$nameclickeds['logo']?>"> -->
+                       <!--<img src=".././resources/img/logos/<?=$nameclickeds['logo']?>"> -->
                         <label class="list-unstyled"><?=$nameclickeds['name']?></label>
                     </div>
                 <?php
@@ -82,7 +84,7 @@ if (empty($_SESSION['clickeds'])){
                 <p>yes | ./autoinstaller.sh</p>
             </div><br/>
 
-            <a href=".././functions/autoinstaller.sh" class="btn btn-primary" download>Download Autoinstaller</a>
+            <a href=".././validate_data/autoinstaller/autoinstaller.sh"" class="btn btn-primary" download>Download Autoinstaller</a>
 
         <?php deleteErrors(); ?>
         <footer class="text-right"> Developed by Daniel Macias </footer>

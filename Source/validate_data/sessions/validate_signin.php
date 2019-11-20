@@ -69,11 +69,11 @@
 
          }else{
              $_SESSION['errors'] = $errors;
-             header("Location: ../.././pages/login_signin.php");
+             header("Location: ../.././pages/signin.php");
          }
 
 	}else{
         $_SESSION['errors'] = "There was an error sending the data";
-        header("Location: ../.././pages/login_signin.php");
+        header("Location: ../.././pages/signin.php");
  }
 ?>

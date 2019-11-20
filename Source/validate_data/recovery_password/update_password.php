@@ -42,7 +42,7 @@ if (isset($_SESSION['user_identify'])){
 
 
             $_SESSION['completed'] = "Your password is recovered";
-            header("Location: ../.././pages/login_signin.php");
+            header("Location: ../.././pages/login.php");
         }else{
             header("Location: ../.././validate_data/recovery_password/recovery_password.php?user=$user&token=$token");
         }

@@ -113,12 +113,14 @@ INSERT INTO `software` (`id`, `name`, `logo`, `category`, `add_repository`, `nam
 (27, 'OnlyOffice', 'onlyoffice.png', 7, NULL, 'onlyoffice-desktopeditors', 0, 'snap install'),
 (28, 'Inkscape', 'inkscape.png', 7, NULL, 'inkscape', 0, 'snap install'),
 (29, 'Evince', 'evince.png', 7, NULL, 'evince', 0, 'apt install'),
-(30, 'Sublime Text', 'sublime-text.png', 8, NULL, 'sublime-text', 0, 'snap install'),
+(30, 'Sublime Text', 'sublime-text.png', 8, NULL, 'sublime-text --classic', 0, 'snap install'),
 (31, 'Atom', 'atom-png', 8, NULL, 'atom --classic', 0, 'snap install'),
 (32, 'VSCode', 'vscode.png', 8, NULL, '--classic code', 0, 'snap install'),
 (33, 'GIMP', 'gimp.png', 9, NULL, 'gimp', 0, 'snap install'),
 (34, 'Blender', 'blender.png', 9, NULL, 'blender --classic', 0, 'snap install'),
-(35, 'Audacity', 'sudacity.png', 9, NULL, 'audacity', 0, 'apt install');
+(35, 'Audacity', 'sudacity.png', 9, NULL, 'audacity', 0, 'apt install'),
+(36, 'SweetHome3d', 'sweethome3d.png', 9, NULL, 'sweethome3d', 0, 'apt install'),
+(37, 'FileZilla', 'filezilla.png', 8, NULL, 'filazilla', 0, 'apt install');
 
 -- --------------------------------------------------------
 

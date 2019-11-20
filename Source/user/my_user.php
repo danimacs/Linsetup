@@ -29,12 +29,6 @@ require_once '.././configs/isset_session.php';
                      </li>
                  <?php endif; ?>
 
-                 <?php if (!isset($_SESSION['user_identify'])): ?>
-                    <li class="nav-item text-right">
-                     <a href=".././pages/login_signin.php" class="nav-link">Login | Signin</a>
-                 </li>
-                 <?php endif; ?>
-
              </ul>
 
          </nav>
@@ -60,8 +54,8 @@ require_once '.././configs/isset_session.php';
 
                     <div class="buttons">
 
-                        <a href=".././functions/downloadautoinstaller.php?id=<?=$autoinstaller['id']?>" class="btn btn-primary">Download Autoinstaller</a>
-                        <a href=".././functions/deleteautoinstaller.php?id=<?=$autoinstaller['id']?>" class="btn btn-primary">Delete Autoinstaller</a>
+                        <a href="../validate_data/autoinstaller/downloadautoinstaller.php?id=<?=$autoinstaller['id']?>" class="btn btn-primary">Download Autoinstaller</a>
+                        <a href="../validate_data/autoinstaller/deleteautoinstaller.php?id=<?=$autoinstaller['id']?>" class="btn btn-primary">Delete Autoinstaller</a>
                         <a href=".././configs/update_share.php?id=<?=$autoinstaller['id']?>" onclick="fcopy(<?=$autoinstaller['id']?>)" class="btn btn-primary" >Generate Link</a>
 
                     </div>

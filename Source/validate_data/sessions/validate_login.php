@@ -92,7 +92,7 @@ if ($_POST){
         if ($try >= 10){
         header("Location: ../.././validate_data/user_data/send_email_verificate.php?user_id=$account&from=unlock");
         }else{
-        header("Location: ../.././pages/login_signin.php");
+        header("Location: ../.././pages/login.php");
         }
     }
 }

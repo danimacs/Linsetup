@@ -1,7 +1,7 @@
 <?php
 
-include_once '.././configs/functions.php';
-include_once '.././configs/connection.php';
+include_once '../.././configs/functions.php';
+include_once '../.././configs/connection.php';
 
 if (empty($_POST['commands'])){
     unset($_POST["commands"]);
@@ -55,15 +55,16 @@ for ($i = 0; $i <= $long; $i++) {
     $txt = $txt . "sudo ". $search['source'] ." ".$search['name_packet'] . "\n";
 }
 
-$_SESSION['clickeds'] = $software;
+$_SESSION['clickeds']['software'] = $software;
+$_SESSION['clickeds']['commands'] = $commands;
 
 $file  = fopen('autoinstaller.sh','w');
 fwrite($file, $txt);
 fclose($file);
 
-if (empty($_POST)){
-    header('Location: .././index.php');
+if (empty($_POST) && !isset($commands)){
+    header('Location: ../.././index.php');
 }else{
-    header('Location: .././pages/download_page.php');
+    header('Location: ../.././pages/download_page.php');
 }
 

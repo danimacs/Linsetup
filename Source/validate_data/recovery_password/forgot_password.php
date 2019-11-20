@@ -72,5 +72,5 @@ if (!empty($user)){
         header("Location: ../.././user/forgot_password.php");
     }
 
-header("Location: ../.././pages/login_signin.php");
+header("Location: ../.././index.php");
 ?>

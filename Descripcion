@@ -1,7 +1,11 @@
 LINSETUP:
 
     Updates:
-    Mail delivery function repaired
+    Separate login and sign in
+    See custom commands on download_page
+    Add FileZilla and SweetHome3d
+    Change style button of Login and Sign in
+    Move files that manage autoinstaller
 
 
     Source:

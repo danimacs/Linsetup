@@ -15,13 +15,10 @@ include_once '../configs/functions.php';
 
             <ul class="list-unstyled">
 
-                <li class="nav-item">
-                    <h1><a href=".././index.php">LINSETUP</a></h1>
+                <li class="nav-item text-right">
+                    <a href="../pages/signin.php" class="btn btn-primary">Sign in</a>
+                    <a href="../pages/login.php" class="btn btn-primary">Login</a>
                 </li>
-
-               <li class="nav-item text-right">
-                     <a href=".././pages/login_signin.php" class="nav-link">Login | Signin</a>
-                 </li>
 
             </ul>
         </nav>

@@ -29,7 +29,8 @@ include_once './configs/connection.php';
 
                 <?php if (!isset($_SESSION['user_identify'])): ?>
                 <li class="nav-item text-right">
-                    <a href="./pages/login_signin.php" class="nav-link">Login | Signin</a>
+                    <a href="pages/signin.php" class="btn btn-primary">Sign in</a>
+                    <a href="pages/login.php" class="btn btn-primary">Login</a>
                 </li>
                 <?php endif; ?>
             </ul>
@@ -50,7 +51,7 @@ include_once './configs/connection.php';
             </div>
         <?php endif;?>
 
-        <form method="POST" action="./functions/createautoinstaller.php">
+        <form method="POST" action="./validate_data/autoinstaller/createautoinstaller.php">
             <div class="row">
                 <div class="col-md-6">
                     <?php
@@ -90,7 +91,7 @@ include_once './configs/connection.php';
                 if (!empty($categoriesfooter)):
                         while($categoryfooter = mysqli_fetch_assoc($categoriesfooter)):
                 ?>
-                            <ul class="homepage-app-section">
+                        <ul class="homepage-app-section">
                             <h4><?=$categoryfooter['name']?></h4>
                             <?php
                             $softwares = getSoftware($db, $categoryfooter['id']);
@@ -110,10 +111,12 @@ include_once './configs/connection.php';
 
                             <?php if($categoryfooter['id'] == 6):;?>
                                 <br/>
-                                <label for="commands">Put commands:</label><br/>
-                                <textarea rows="4" cols="50" name="commands" placeholder="$"></textarea>
+                                <div class="form-group">
+                                    <label for="commands">Custom commands:</label><br/>
+                                    <textarea class="form-control" name="commands" placeholder="$"></textarea>
+                                </div>
                             <?php endif; ?>
-                            </ul>
+                        </ul>
 
                 <?php
                 endwhile;

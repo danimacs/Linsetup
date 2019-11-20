@@ -1,7 +1,7 @@
 <?php
 
-include_once '.././configs/functions.php';
-include_once '.././configs/connection.php';
+include_once '.././../configs/functions.php';
+include_once '.././../configs/connection.php';
 
 $id = (int)$_GET['id'];
 if (is_int($id)) {
@@ -13,6 +13,7 @@ if ($_SESSION['clickeds']['share'] == 1 || $_SESSION['user_identify']['id'] == $
     $txt = "#!/bin/bash \n\n";
 
     if (!empty($_SESSION['clickeds']['commands'])) {
+        $commands_only = $_SESSION['clickeds']['commands'];
         $txt = $txt . $_SESSION['clickeds']['commands'] . "\n";
         $commands = mysqli_real_escape_string($db, $_SESSION['clickeds']['commands']);
         unset($_SESSION['clickeds']["commands"]);
@@ -37,7 +38,8 @@ if ($_SESSION['clickeds']['share'] == 1 || $_SESSION['user_identify']['id'] == $
         $txt = $txt . "sudo " . $search['source'] . " " . $search['name_packet'] . "\n";
     }
 
-    $_SESSION['clickeds'] = $software;
+    $_SESSION['clickeds']['software'] = $software;
+    $_SESSION['clickeds']['commands'] = $commands_only;
 
     $file = fopen('autoinstaller.sh', 'w');
     fwrite($file, $txt);
@@ -50,5 +52,5 @@ if ($_SESSION['clickeds']['share'] == 1 || $_SESSION['user_identify']['id'] == $
     }
 }else{
     $_SESSION['errors'] = "This autoinstaller is not shared";
-    header('Location: .././index.php');
+    header('Location: ../.././index.php');
 }

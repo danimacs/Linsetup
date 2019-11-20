@@ -19,9 +19,10 @@ include_once '../configs/functions.php';
                     <h1><a href=".././index.php">LINSETUP</a></h1>
                 </li>
 
-               <li class="nav-item text-right">
-                     <a href=".././pages/login_signin.php" class="nav-link">Login | Signin</a>
-                 </li>
+                <li class="nav-item text-right">
+                    <a href="../pages/signin.php" class="btn btn-primary">Sign in</a>
+                    <a href="../pages/login.php" class="btn btn-primary">Login</a>
+                </li>
 
             </ul>
         </nav>

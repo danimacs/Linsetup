@@ -29,11 +29,6 @@ require_once '.././configs/functions.php';
                  </li>
              <?php endif; ?>
 
-             <?php if (!isset($_SESSION['user_identify'])): ?><li class="nav-item text-right">
-                     <a href=".././pages/login_signin.php" class="nav-link">Login | Signin</a>
-                 </li>
-             <?php endif; ?>
-
          </ul>
 
      </nav>

@@ -57,17 +57,23 @@ if (empty($_SESSION['clickeds'])){
             </div>
         <?php endif; ?>
 
-                <label class="list-unstyled"><?=$_SESSION['clickeds']['commands']?></label>
                 <div class="list-unstyled">
+                <?php if (isset($_SESSION['clickeds']['commands'])): ?>
+                    <img width="18px" alt="Default Logo" src=".././resources/img/logos/default-logo.png?>">
+                    <label class="list-unstyled"><?=$_SESSION['clickeds']['commands']?></label>
+                <?php endif; ?>
                 <?php
                 $long = count($_SESSION['clickeds']['software']);
                 $long--;
                 for ($i = 0; $i <= $long; $i++):
-                $namesclickeds = searcherPacketsFromID($db, $_SESSION['clickeds']['software'][$i]);
-                $nameclickeds = mysqli_fetch_assoc($namesclickeds);
+                    $namesclickeds = searcherPacketsFromID($db, $_SESSION['clickeds']['software'][$i]);
+                    $nameclickeds = mysqli_fetch_assoc($namesclickeds);
+                    $altlogo = explode(".", $nameclickeds['name']);
+                    $altlogo = $altlogo[0];
+                    $altlogo = $altlogo . " Logo";
                 ?>
                     <div class="list-unstyled">
-                       <!--<img src=".././resources/img/logos/<?=$nameclickeds['logo']?>"> -->
+                        <img width="18px" alt="<?=$altlogo?>" src=".././resources/img/logos/<?=$nameclickeds['logo']?>">
                         <label class="list-unstyled"><?=$nameclickeds['name']?></label>
                     </div>
                 <?php

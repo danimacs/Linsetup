@@ -58,7 +58,10 @@ include_once './configs/connection.php';
                     $categorieshead = searcherCategorieshead($db);
                     if (!empty($categorieshead)):
                                 while($categoryhead = mysqli_fetch_assoc($categorieshead)):
-                        ?>
+                                    $altlogo = explode(".", $software['name']);
+                                    $altlogo = $altlogo[0];
+                                    $altlogo = $altlogo . " Logo";
+                                    ?>
                                     <ul class="homepage-app-section">
                                     <h4><?=$categoryhead['name']?></h4>
                                     <?php
@@ -69,7 +72,7 @@ include_once './configs/connection.php';
 
                                     <li class="list-unstyled">
                                         <input type="checkbox" name="<?=$software['id']?>">
-                                        <!--<img src="./resources/img/logos/<?=$software['logo']?>">-->
+                                        <img width="18px" alt="<?=$altlogo?>" src="./resources/img/logos/<?=$software['logo']?>">
                                         <label class="list-unstyled"><?=$software['name']?></label>
                                     </li>
 
@@ -96,12 +99,15 @@ include_once './configs/connection.php';
                             <?php
                             $softwares = getSoftware($db, $categoryfooter['id']);
                             if (!empty($softwares)):
-                            while($software = mysqli_fetch_assoc($softwares)):
+                                while($software = mysqli_fetch_assoc($softwares)):
+                                    $altlogo = explode(".", $software['name']);
+                                    $altlogo = $altlogo[0];
+                                    $altlogo = $altlogo . " Logo";
                             ?>
 
                             <li class="list-unstyled">
                                 <input type="checkbox"  name="<?=$software['id']?>">
-                                <!--<img src="./resources/img/logos/<?=$software['logo']?>">-->
+                                 <img width="18px" alt="<?=$altlogo?>" src="./resources/img/logos/<?=$software['logo']?>">
                                 <label class="list-unstyled"><?=$software['name']?></label>
                             </li>
                             <?php

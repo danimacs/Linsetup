@@ -60,7 +60,7 @@ require_once '.././configs/isset_session.php';
 
                     </div>
 
-                    <input type="text" style="opacity: 0" id="<?=$autoinstaller['id']?>" value="www.linsetup.com/functions/downloadautoinstaller.php?id=<?=$autoinstaller['id']?>">
+                    <input type="text" style="opacity: 0" id="<?=$autoinstaller['id']?>" value="www.linsetup.com/validate_data/autoinstaller/downloadautoinstaller.php?id=<?=$autoinstaller['id']?>">
 
                     <br/><br/>
 

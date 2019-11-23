@@ -1,11 +1,8 @@
 LINSETUP:
 
     Updates:
-    Separate login and sign in
-    See custom commands on download_page
-    Add FileZilla and SweetHome3d
-    Change style button of Login and Sign in
-    Move files that manage autoinstaller
+    See each command in a new line in download_page
+    Repair link of share autoinstaller
 
 
     Source:

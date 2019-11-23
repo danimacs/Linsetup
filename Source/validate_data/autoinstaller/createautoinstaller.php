@@ -3,13 +3,17 @@
 include_once '../.././configs/functions.php';
 include_once '../.././configs/connection.php';
 
-if (empty($_POST['commands'])){
-    unset($_POST["commands"]);
-}
+$txt = "#!/bin/bash \n\n";
 
-if (isset($_POST['commands'])){
-    $commands = $_POST['commands'];
-    unset($_POST["commands"]);
+if (!empty($_POST['commands'])){
+    $commands_clean = mysqli_real_escape_string($db, $_POST['commands']);
+    $commands = explode('\r\n', $commands_clean);
+    $long_commands = count($commands);
+    $long_commands--;
+    for ($i = 0; $i <= $long_commands; $i++){
+        $txt = $txt . $commands[$i] . "\n";
+    }
+    $_SESSION['clickeds']['commands'] = $commands;
 }
 
 if (isset($_POST['save_autoinstaller'])){
@@ -17,13 +21,29 @@ if (isset($_POST['save_autoinstaller'])){
     unset($_POST["save_autoinstaller"]);
 }
 
-$txt = "#!/bin/bash \n\n";
-$software = array_keys($_POST);
-$long = count($software);
-$long--;
+if (!isset($_POST['software'])) {
 
-if ($commands){
-    $txt = $txt . $commands . "\n";
+    unset($_POST['commands']);
+    $software = array_keys($_POST);
+    $long = count($software);
+    $long--;
+
+    for ($i = 0; $i <= $long; $i++) {
+        $searchs = searcherPacketsFromID($db, $software[$i]);
+        $search = mysqli_fetch_assoc($searchs);
+        if ($search['add_repository'] != null) {
+            $txt = $txt . $search['add_repository'];
+            $txt = $txt . "sudo apt update" . "\n";
+        }
+    }
+
+    for ($i = 0; $i <= $long; $i++) {
+        $searchs = searcherPacketsFromID($db, $software[$i]);
+        $search = mysqli_fetch_assoc($searchs);
+        $txt = $txt . "sudo " . $search['source'] . " " . $search['name_packet'] . "\n";
+    }
+
+    $_SESSION['clickeds']['software'] = $software;
 }
 
 if ($saveautoinstaller){
@@ -31,7 +51,7 @@ if ($saveautoinstaller){
     $user = $_SESSION['user_identify']['id'];
     $list = implode(" ", $software);
     if ($commands) {
-        $sql = "INSERT INTO saveautoinstaller VALUE (null, '$saveautoinstaller', $user, '$list', '$commands', 0, NOW())";
+        $sql = "INSERT INTO saveautoinstaller VALUE (null, '$saveautoinstaller', $user, '$list', '$commands_clean', 0, NOW())";
     }else{
         $sql = "INSERT INTO saveautoinstaller VALUE (null, '$saveautoinstaller', $user, '$list', null, 0, NOW())";
     }
@@ -40,29 +60,11 @@ if ($saveautoinstaller){
 
 }
 
-for ($i = 0; $i <= $long; $i++) {
-    $searchs = searcherPacketsFromID($db, $software[$i]);
-    $search = mysqli_fetch_assoc($searchs);
-    if ($search['add_repository'] != null) {
-        $txt = $txt . $search['add_repository'];
-        $txt = $txt . "sudo apt update" . "\n";
-    }
-}
-
-for ($i = 0; $i <= $long; $i++) {
-    $searchs = searcherPacketsFromID($db, $software[$i]);
-    $search = mysqli_fetch_assoc($searchs);
-    $txt = $txt . "sudo ". $search['source'] ." ".$search['name_packet'] . "\n";
-}
-
-$_SESSION['clickeds']['software'] = $software;
-$_SESSION['clickeds']['commands'] = $commands;
-
 $file  = fopen('autoinstaller.sh','w');
 fwrite($file, $txt);
 fclose($file);
 
-if (empty($_POST) && !isset($commands)){
+if (!isset($software) && !isset($commands)){
     header('Location: ../.././index.php');
 }else{
     header('Location: ../.././pages/download_page.php');

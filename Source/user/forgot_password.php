@@ -29,7 +29,7 @@ include_once '../configs/functions.php';
 
         <?php if(isset($_SESSION['errors']['forgot_password'])): ?>
             <div class="alert alert-danger alert-dismissible">
-                <?=$_SESSION['errors']['forgot_password'] ?>
+                <?=$_SESSION['errors']['forgot_password']?>
             </div>
         <?php endif; ?>
 

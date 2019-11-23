@@ -46,22 +46,32 @@ if (empty($_SESSION['clickeds'])){
 
         <?php if (isset($_SESSION['errors'])) : ?>
             <div class="alert alert-danger alert-dismissible">
-                <?=$_SESSION['errors'];?><br/><br/>
+                <?=$_SESSION['errors'];?>
             </div>
         <?php endif;?>
 
         <?php if(isset($_SESSION['completed'])): ?>
             <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <?=$_SESSION['completed']?><br/><br/>
+                <?=$_SESSION['completed']?>
             </div>
         <?php endif; ?>
 
                 <div class="list-unstyled">
-                <?php if (isset($_SESSION['clickeds']['commands'])): ?>
-                    <img width="18px" alt="Default Logo" src=".././resources/img/logos/default-logo.png?>">
-                    <label class="list-unstyled"><?=$_SESSION['clickeds']['commands']?></label>
-                <?php endif; ?>
+                <?php
+                if (isset($_SESSION['clickeds']['commands'])):
+                    $commands = $_SESSION['clickeds']['commands'];
+                    $long_commands = count($commands);
+                    $long_commands--;
+                    for ($i = 0; $i <= $long_commands; $i++):
+                        $txt = $txt . $commands[$i] . "\n";
+                ?>
+                   <img width="18px" alt="Default Logo" src=".././resources/img/logos/default-logo.png?>">
+                   <label class="list-unstyled"><?=$commands[$i]?></label><br/>
+                <?php
+                    endfor;
+                endif;
+                ?>
                 <?php
                 $long = count($_SESSION['clickeds']['software']);
                 $long--;

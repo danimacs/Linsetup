@@ -36,13 +36,13 @@ require_once '.././configs/functions.php';
         <article class="data">
             <?php if(isset($_SESSION['completed'])): ?>
                 <div class="alert alert-success alert-dismissible">
-                    <?=$_SESSION['completed']?></div>
+                    <?=$_SESSION['completed']?>
                 </div>
             <?php endif; ?>
 
             <?php if(isset($_SESSION['errors']['general'])): ?>
                 <div class="alert alert-danger alert-dismissible">
-                    <?=$_SESSION['errors']['general']?></div>
+                    <?=$_SESSION['errors']['general']?>
                 </div>
             <?php endif; ?>
 

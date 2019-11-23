@@ -31,14 +31,14 @@ include_once '../configs/functions.php';
         <?php if(isset($_SESSION['completed'])): ?>
             <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <?=$_SESSION['completed'] ?>
+                <?=$_SESSION['completed']?>
             </div>
         <?php endif; ?>
 
         <?php if(isset($_SESSION['errors']['login'])): ?>
             <div class="alert alert-danger alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <?=$_SESSION['errors']['login'] ?>
+                <?=$_SESSION['errors']['login']?>
             </div>
         <?php endif; ?>
 

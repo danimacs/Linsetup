@@ -39,7 +39,7 @@ include_once './configs/connection.php';
         <?php if (isset($_SESSION['completed'])) : ?>
             <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <?=$_SESSION['completed'];?><br/><br/>
+                <?=$_SESSION['completed']?>
             </div>
         <?php endif;?>
 
@@ -47,7 +47,7 @@ include_once './configs/connection.php';
         <?php if (isset($_SESSION['errors'])) : ?>
             <div class="alert alert-danger alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <?=$_SESSION['errors'];?><br/><br/>
+                <?=$_SESSION['errors']?>
             </div>
         <?php endif;?>
 
@@ -144,7 +144,12 @@ include_once './configs/connection.php';
         </form>
         <br/>
 
-           <footer class="text-right"> Developed by Daniel Macias </footer>
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <p>This site use cookies more in <a href="./about/cookies_policy.php">Cookies Policy</a></p>
+        </div>
+
+       <footer class="text-right"> Developed by Daniel Macias </footer>
 
         <?php deleteErrors(); ?>
   </body>

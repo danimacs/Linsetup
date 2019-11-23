@@ -7,7 +7,7 @@ $user = $_SESSION['user_identify']['id'];
 $id = (int)$_GET['id'];
 
 if(is_int($id)){
-    $sql = "DELETE FROM saveautoinstaller WHERE id = '$id' AND user = $user";
+    $sql = "DELETE FROM saveautoinstaller WHERE id = '$id' AND user = '$user'";
     mysqli_query($db, $sql);
 }
 

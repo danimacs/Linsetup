@@ -5,51 +5,57 @@ include_once '.././../configs/connection.php';
 
 $id = (int)$_GET['id'];
 if (is_int($id)) {
-    $_SESSION['clickeds'] = getsaveautoinstaller($db, $_GET['id']);
-    $_SESSION['clickeds'] = mysqli_fetch_assoc($_SESSION['clickeds']);
+    $autoinstaller = getsaveautoinstaller($db, $_GET['id']);
+    $autoinstaller = mysqli_fetch_assoc($autoinstaller);
 }
 
-if ($_SESSION['clickeds']['share'] == 1 || $_SESSION['user_identify']['id'] == $_SESSION['clickeds']['user']) {
+if ($autoinstaller['share'] == 1 || $_SESSION['user_identify']['id'] == $autoinstaller['user']) {
+
     $txt = "#!/bin/bash \n\n";
 
-    if (!empty($_SESSION['clickeds']['commands'])) {
-        $commands_only = $_SESSION['clickeds']['commands'];
-        $txt = $txt . $_SESSION['clickeds']['commands'] . "\n";
-        $commands = mysqli_real_escape_string($db, $_SESSION['clickeds']['commands']);
-        unset($_SESSION['clickeds']["commands"]);
-    }
-
-    $software = explode(" ", $_SESSION['clickeds']['software']);
-    $long = count($software);
-    $long--;
-
-    for ($i = 0; $i <= $long; $i++) {
-        $searchs = searcherPacketsFromID($db, $software[$i]);
-        $search = mysqli_fetch_assoc($searchs);
-        if ($search['add_repository'] != null) {
-            $txt = $txt . $search['add_repository'];
-            $txt = $txt . "sudo apt update" . "\n";
+    if (!empty($autoinstaller['commands'])) {
+        $commands = mysqli_real_escape_string($db, $autoinstaller['commands']);
+        $commands = explode('\r\n', $commands);
+        $long_commands = count($commands);
+        $long_commands--;
+        for ($i = 0; $i <= $long_commands; $i++){
+            $txt = $txt . $commands[$i] . "\n";
         }
+        $_SESSION['clickeds']['commands'] = $commands;
     }
 
-    for ($i = 0; $i <= $long; $i++) {
-        $searchs = searcherPacketsFromID($db, $software[$i]);
-        $search = mysqli_fetch_assoc($searchs);
-        $txt = $txt . "sudo " . $search['source'] . " " . $search['name_packet'] . "\n";
-    }
+    if (!empty($autoinstaller['software'])) {
+        $software = explode(" ", $autoinstaller['software']);
+        $long = count($software);
+        $long--;
 
-    $_SESSION['clickeds']['software'] = $software;
-    $_SESSION['clickeds']['commands'] = $commands_only;
+        for ($i = 0; $i <= $long; $i++) {
+            $searchs = searcherPacketsFromID($db, $software[$i]);
+            $search = mysqli_fetch_assoc($searchs);
+            if ($search['add_repository'] != null) {
+                $txt = $txt . $search['add_repository'];
+                $txt = $txt . "sudo apt update" . "\n";
+            }
+        }
+
+        for ($i = 0; $i <= $long; $i++) {
+            $searchs = searcherPacketsFromID($db, $software[$i]);
+            $search = mysqli_fetch_assoc($searchs);
+            $txt = $txt . "sudo " . $search['source'] . " " . $search['name_packet'] . "\n";
+        }
+        $_SESSION['clickeds']['software'] = $software;
+    }
 
     $file = fopen('autoinstaller.sh', 'w');
     fwrite($file, $txt);
     fclose($file);
 
-    if (empty($commands[0]) && empty($software[0])) {
-        header('Location: .././index.php');
-    } else {
-        header('Location: .././pages/download_page.php');
+    if (!isset($software) && !isset($commands)){
+        header('Location: ../.././index.php');
+    }else{
+        header('Location: ../.././pages/download_page.php');
     }
+
 }else{
     $_SESSION['errors'] = "This autoinstaller is not shared";
     header('Location: ../.././index.php');

@@ -103,6 +103,26 @@ if (empty($_SESSION['clickeds'])){
             <a href=".././validate_data/autoinstaller/autoinstaller.sh"" class="btn btn-primary" download>Download Autoinstaller</a>
 
         <?php deleteErrors(); ?>
-        <footer class="text-right"> Developed by Daniel Macias </footer>
+
+     <br/>
+     <footer class="text-left list-unstyled">
+
+         <ul class="list-unstyled">
+
+             <li class="nav-item">
+                 <a href=".././about/terms_and_conditions.php" class="nav-link" target="_blank">Terms and Conditions</a>
+             </li>
+
+             <li class="nav-item">
+                 <a href=".././about/cookies_policy.php" class="nav-link" target="_blank">Cookies Policy</a>
+             </li>
+
+             <li class="nav-item">
+                 <a href="https://github.com/danielmac03/Linsetup" class="nav-link" target="_blank">Github</a>
+             </li>
+
+         </ul>
+     </footer>
+
     </body>
 </html>

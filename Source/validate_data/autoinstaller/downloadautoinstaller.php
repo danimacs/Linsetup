@@ -1,9 +1,10 @@
 <?php
 
-include_once '.././../configs/functions.php';
-include_once '.././../configs/connection.php';
+include_once '../.././configs/functions.php';
+include_once '../.././configs/connection.php';
 
 $id = (int)$_GET['id'];
+
 if (is_int($id)) {
     $autoinstaller = getsaveautoinstaller($db, $_GET['id']);
     $autoinstaller = mysqli_fetch_assoc($autoinstaller);

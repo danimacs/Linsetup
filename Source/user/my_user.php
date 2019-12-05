@@ -33,6 +33,13 @@ require_once '.././configs/isset_session.php';
 
          </nav>
 
+         <?php if (isset($_SESSION['completed'])) : ?>
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <?=$_SESSION['completed']?>
+            </div>
+        <?php endif;?>
+
             <article>
             <h2>My Data</h2>
             <label for="user">User:</label><br/>
@@ -75,7 +82,7 @@ require_once '.././configs/isset_session.php';
                 <?php endif; ?>
                 </article>
 
-        <br/>
+                <br/>
         <footer class="text-left list-unstyled">
 
             <ul class="list-unstyled">
@@ -94,6 +101,6 @@ require_once '.././configs/isset_session.php';
 
             </ul>
         </footer>
-
+        
     </body>
 </html>

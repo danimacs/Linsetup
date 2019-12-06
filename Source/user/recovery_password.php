@@ -11,17 +11,21 @@ include_once '../configs/functions.php';
 
     <body class="container">
 
-        <nav class="navbar navbar-expand-sm bg-dark navbar-light">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-light">
 
-            <ul class="list-unstyled">
+        <ul class="list-unstyled">
 
-                <li class="nav-item text-right">
-                    <a href="../pages/signin.php" class="btn btn-primary">Sign in</a>
-                    <a href="../pages/login.php" class="btn btn-primary">Login</a>
-                </li>
+            <li class="nav-item">
+                <h1><a href=".././index.php">LINSETUP</a></h1>
+            </li>
 
-            </ul>
-        </nav>
+            <li class="nav-item text-right">
+                <a href="../pages/signin.php" class="btn btn-primary">Sign in</a>
+                <a href="../pages/login.php" class="btn btn-primary">Login</a>
+            </li>
+
+        </ul>
+    </nav>
 
         <h2>Forgot Password?</h2>
 

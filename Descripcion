@@ -1,8 +1,8 @@
 LINSETUP:
 
     Updates:
-    Avoid brute force attack to allow sharing a autoinstaller
-
+    Create a sitemap
+    Delete unused file
 
     Source:
     Login and login

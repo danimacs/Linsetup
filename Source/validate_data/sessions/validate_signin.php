@@ -10,11 +10,8 @@
     $email = isset($_POST['email']) ?  mysqli_real_escape_string($db, trim($_POST['email'])) : false;
     $password = isset($_POST['password']) ?  mysqli_real_escape_string($db, $_POST['password']) : false;
     $password_verify = isset($_POST['password_verify']) ?  mysqli_real_escape_string($db, $_POST['password_verify']) : false;
-    if (empty($private_account)){
-        $private_account = 0;
-    }
-
-     $errors = array();
+   
+    $errors = array();
 
  	if (empty($user)) {
         $errors['user'] = "The user is invalid";

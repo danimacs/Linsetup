@@ -7,7 +7,7 @@ require_once '.././configs/functions.php';
 <html lang="en">
 
     <head>
-        <?php include_once '.././configs/meta.php'; ?>
+        <?php require_once '.././configs/meta.php'; ?>
         <title>LINSETUP - Settings</title>
     </head>
 

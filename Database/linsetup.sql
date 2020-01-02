@@ -111,16 +111,16 @@ INSERT INTO `software` (`id`, `name`, `logo`, `category`, `add_repository`, `nam
 (25, 'LibreOffice', 'libreoffice-logo.png', 7, NULL, 'libreoffice', 0, 'snap install'),
 (26, 'WPS OFFICE', 'wpsoffice-logo.png', 7, NULL, 'wps-office ', 0, 'snap install'),
 (27, 'OnlyOffice', 'onlyoffice-logo.png', 7, NULL, 'onlyoffice-desktopeditors', 0, 'snap install'),
-(28, 'Inkscape', 'inkscape-logo.png', 7, NULL, 'inkscape', 0, 'snap install'),
-(29, 'Evince', 'evince-logo.svg', 7, NULL, 'evince', 0, 'apt install'),
-(30, 'Sublime Text', 'sublime-text-logo.png', 8, NULL, 'sublime-text --classic', 0, 'snap install'),
-(31, 'Atom', 'atom-logo.png', 8, NULL, 'atom --classic', 0, 'snap install'),
-(32, 'VSCode', 'vscode-logo.png', 8, NULL, '--classic code', 0, 'snap install'),
+(28, 'Evince', 'evince-logo.svg', 7, NULL, 'evince', 0, 'apt install'),
+(29, 'Sublime Text', 'sublime-text-logo.png', 8, NULL, 'sublime-text --classic', 0, 'snap install'),
+(30, 'Atom', 'atom-logo.png', 8, NULL, 'atom --classic', 0, 'snap install'),
+(31, 'VSCode', 'vscode-logo.png', 8, NULL, '--classic code', 0, 'snap install'),
+(32, 'FileZilla', 'filezilla-logo.png', 8, NULL, 'filezilla', 0, 'apt install'),
 (33, 'GIMP', 'gimp-logo.png', 9, NULL, 'gimp', 0, 'snap install'),
 (34, 'Blender', 'blender-logo.png', 9, NULL, 'blender --classic', 0, 'snap install'),
 (35, 'Audacity', 'audacity-logo.png', 9, NULL, 'audacity', 0, 'apt install'),
 (36, 'SweetHome3d', 'sweethome3d-logo.png', 9, NULL, 'sweethome3d', 0, 'apt install'),
-(37, 'FileZilla', 'filezilla-logo.png', 8, NULL, 'filezilla', 0, 'apt install');
+(37, 'Inkscape', 'inkscape-logo.png', 9, NULL, 'inkscape', 0, 'snap install');
 
 -- --------------------------------------------------------
 

@@ -1,7 +1,7 @@
 <?php
 
-include_once '../.././configs/connection.php';
-include_once '../.././configs/isset_session.php';
+require_once '../.././configs/connection.php';
+require_once '../.././configs/isset_session.php';
 
 $user = $_SESSION['user_identify']['id'];
 $id = (int)$_GET['id'];

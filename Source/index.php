@@ -1,11 +1,11 @@
 <?php
-include_once './configs/functions.php';
-include_once './configs/connection.php';
+require_once './configs/functions.php';
+require_once './configs/connection.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <?php include_once './configs/meta.php'; ?>
+        <?php require_once './configs/meta.php'; ?>
         <title>LINSETUP</title>
     </head>
     <body class="container">

@@ -1,7 +1,7 @@
 <?php
 
-include_once '../.././configs/functions.php';
-include_once '../.././configs/connection.php';
+require_once '../.././configs/functions.php';
+require_once '../.././configs/connection.php';
 
 $txt = "#!/bin/bash \n\n";
 

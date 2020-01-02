@@ -1,6 +1,6 @@
 <?php
-include_once '.././configs/connection.php';
-include_once '.././configs/functions.php';
+require_once '.././configs/connection.php';
+require_once '.././configs/functions.php';
 
 if (empty($_SESSION['clickeds'])){
     header('Location: .././index.php');
@@ -11,7 +11,7 @@ if (empty($_SESSION['clickeds'])){
 <html lang="en">
 <html>
         <head>
-            <?php include_once '.././configs/meta.php'; ?>
+            <?php require_once '.././configs/meta.php'; ?>
             <title>LINSETUP</title>
         </head>
 

@@ -1,13 +1,13 @@
 LINSETUP:
 
     Updates:
-    Create a sitemap
-    Delete unused file
+    Substitution of include_once with require_once
+    Change Inkscape Category
 
     Source:
     Login and login
     Edit email, nickname, password
-    Recovery Password (Not Tested)
+    Recovery Password (Tested)
     Terms and Conditions
     Cookies policy
     Save Autoinstaller

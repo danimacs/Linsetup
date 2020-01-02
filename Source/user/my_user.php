@@ -6,7 +6,7 @@ require_once '.././configs/isset_session.php';
 <!DOCTYPE html>
 <html lang="en">
     <head>
-      <?php include_once '.././configs/meta.php'; ?>
+      <?php require_once '.././configs/meta.php'; ?>
         <title>LINSETUP - <?=$_SESSION['user_identify']['user']?></title>
         <script type="text/javascript" src=".././configs/functions.js"></script>
     </head>

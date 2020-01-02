@@ -6,7 +6,7 @@ $password = "root";
 $database = "linsetup";
 $db = mysqli_connect($server, $username, $password, $database);
 
-if(!$db){
+if($db == false){
    echo "Error: Unable to connect to MySQL" . mysqli_connect_errno();
    exit;
 }  

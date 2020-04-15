@@ -1,174 +1,151 @@
 <?php
-require_once './configs/functions.php';
-require_once './configs/connection.php';
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/configs/functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/configs/connection.php';
+
+$title = "Install more software at once on Linux";
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <?php require_once './configs/meta.php'; ?>
-        <title>LINSETUP</title>
-    </head>
+
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/resources/php-requires/meta.php'; ?>
+
     <body class="container">
 
-        <nav class="navbar navbar-expand-sm bg-dark navbar-light">
+        <nav class="navbar navbar-expand-sm mt-5 mb-3 p-0">
 
-            <ul class="list-unstyled">
+            <ul class="nav list-unstyled w-100">
 
-                <li class="nav-item">
-                    <h1><a href="./index.php" class="nav-link">LINSETUP</a></h1>
+                <li class="d-inline-block">
+                    <h1><a href="index.php">LINSETUP</a></h1>
                 </li>
 
-
-               <?php if (isset($_SESSION['user_identify'])): ?>
-                 <li class="nav-item text-right">
-                    <a href="user/my_user.php" class="nav-link"><?=$_SESSION['user_identify']['user'];?></a>
-                    <a href="user/my_data.php" class="nav-link">Settings</a>
-                    <a href="./configs/logout.php" class="nav-link">Sign Off</a>
+                <?php if (isset($_SESSION['completed'])) : ?>
+                <li class="alert alert-success alert-dismissible d-inline-block mx-auto">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?=$_SESSION['completed']?>
                 </li>
-                <?php endif; ?>
+                <?php endif;?>
 
-                <?php if (!isset($_SESSION['user_identify'])): ?>
-                <li class="nav-item text-right">
-                    <a href="pages/signin.php" class="btn btn-primary">Sign in</a>
-                    <a href="pages/login.php" class="btn btn-primary">Login</a>
+
+                <?php if (isset($_SESSION['errors'])) : ?>
+                    <li class="alert alert-danger alert-dismissible d-inline-block mx-auto">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?=$_SESSION['errors']?>
+                    </li>
+                <?php endif;?>
+
+                <?php if (isset($_SESSION['errors_login'])) : ?>
+                    <li class="alert alert-danger alert-dismissible d-inline-block mx-auto">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?=$_SESSION['errors_login']?>
+                    </li>
+                <?php endif;?>
+
+                <li class="ml-auto d-inline-block mt-1 text-white">
+
+                    <?php if (isset($_SESSION['user_identify'])): ?>
+                        <a href="pages/my_user.php" class="btn btn-primary"><?=$_SESSION['user_identify']['user'];?></a>
+                        <a data-toggle="modal" data-target="#settings" class="btn btn-primary"><i class="fas fa-sliders-h"></i></a>
+                        <a href="configs/logout.php" class="btn btn-primary"><i class="fas fa-sign-out-alt"></i></a>
+                    <?php endif; ?>
+
+                    <?php if (!isset($_SESSION['user_identify'])): ?>
+                        <a data-toggle="modal" data-target="#signin" class="btn btn-primary">Sign in</a>
+                        <a data-toggle="modal" data-target="#login" class="btn btn-primary">Login</a>
+                    <?php endif; ?>
+
                 </li>
-                <?php endif; ?>
+
             </ul>
         </nav>
 
-        <?php if (isset($_SESSION['completed'])) : ?>
-            <div class="alert alert-success alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <?=$_SESSION['completed']?>
-            </div>
-        <?php endif;?>
+        <form method="POST" action="../validate_data/createautoinstaller.php" class="p-0">
 
+            <div class="row pl-4">
 
-        <?php if (isset($_SESSION['errors'])) : ?>
-            <div class="alert alert-danger alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <?=$_SESSION['errors']?>
-            </div>
-        <?php endif;?>
+            <?php 
+            for($i = 0; $i <= 2; $i++):
+                $searcherCategories = "searcherCategories" . $i;
+                $categories[$i] = $searcherCategories($db);
+            ?>
 
-        <form method="POST" action="./validate_data/autoinstaller/createautoinstaller.php">
-            <div class="row">
-                <div class="col-md-6">
-                    <?php
-                    $categorieshead = searcherCategorieshead($db);
-                    if (!empty($categorieshead)):
-                                while($categoryhead = mysqli_fetch_assoc($categorieshead)):
-                                    $altlogo = explode(".", $categoryhead['name']);
-                                    $altlogo = $altlogo[0];
-                                    $altlogo = $altlogo . " Logo";
-                                    ?>
-                                    <ul class="homepage-app-section">
-                                    <h4><?=$categoryhead['name']?></h4>
-                                    <?php
-                                    $softwares = getSoftware($db, $categoryhead['id']);
-                                    if (!empty($softwares)):
-                                    while($software = mysqli_fetch_assoc($softwares)):
-                                    ?>
+                <div class="col-md-4">
 
-                                    <li class="list-unstyled">
-                                        <input type="checkbox" name="<?=$software['id']?>">
-                                        <img width="18px" alt="<?=$altlogo?>" src="./resources/img/logos/<?=$software['logo']?>">
-                                        <label class="list-unstyled"><?=$software['name']?></label>
-                                    </li>
+                    <?php while($category = mysqli_fetch_assoc($categories[$i])): ?>
 
-                                    <?php
-                                        endwhile;
-                                    endif;
-                                    ?>
-                                    </ul>
+                        <ul class="p-0">
+                            
+                            <h2 class="categories"><?=$category['name']?></h2>
 
-                        <?php
-                        endwhile;
-                        endif;
-                        ?>
-                </div>
-
-                <div class="col-md-6">
-                <?php
-                $categoriesfooter = searcherCategoriesfooter($db);
-                if (!empty($categoriesfooter)):
-                        while($categoryfooter = mysqli_fetch_assoc($categoriesfooter)):
-                ?>
-                        <ul class="homepage-app-section">
-                            <h4><?=$categoryfooter['name']?></h4>
                             <?php
-                            $softwares = getSoftware($db, $categoryfooter['id']);
-                            if (!empty($softwares)):
-                                while($software = mysqli_fetch_assoc($softwares)):
-                                    $altlogo = explode(".", $software['name']);
-                                    $altlogo = $altlogo[0];
-                                    $altlogo = $altlogo . " Logo";
+                            $softwares = getSoftware($db, $category['id']);
+                            while($software = mysqli_fetch_assoc($softwares)):
                             ?>
 
                             <li class="list-unstyled">
-                                <input type="checkbox"  name="<?=$software['id']?>">
-                                 <img width="18px" alt="<?=$altlogo?>" src="./resources/img/logos/<?=$software['logo']?>">
+                                <input type="checkbox" name="<?=$software['id']?>">
+                                <img width="18px" alt="<?=$software['name'] . " Logo"?>" src="/resources/img/logos/<?=$software['logo']?>">
                                 <label class="list-unstyled"><?=$software['name']?></label>
                             </li>
-                            <?php
-                                endwhile;
-                            endif;
-                            ?>
 
-                            <?php if($categoryfooter['id'] == 6):;?>
-                                <br/>
-                                <div class="form-group">
-                                    <label for="commands">Custom commands:</label><br/>
-                                    <textarea class="form-control" name="commands" placeholder="$"></textarea>
-                                </div>
-                            <?php endif; ?>
+                            <?php endwhile; ?>
+                        
                         </ul>
 
-                <?php
-                endwhile;
-                endif;
-                ?>
+                    <?php endwhile; ?>
+
                 </div>
-            </div><br/>
+
+            <?php endfor; ?>
+
+            </div>
+
+            <div class="form-group">
+                <label>Custom commands:</label>
+                <textarea class="form-control" name="commands" placeholder="sudo apt install htop"></textarea>
+            </div>
 
             <?php if (isset($_SESSION['user_identify'])): ?>
-            <div class="form-group">
-                <label for="save_autoinstaller">Name of Autoinstaller:</label>
-                <input type="text" name="save_autoinstaller" class="form-control" autofocus/><br/>
-            </div>
+
+                <div class="form-group">
+                    <label for="save_autoinstaller">If you put a name the autoinstaller will be saved:</label>
+                    <input type="text" name="save_autoinstaller" class="form-control"/><br/>
+                </div>
 
             <?php endif; ?>
 
             <input type="submit" value="Download Autoinstaller" class="btn btn-primary btn-block">
 
         </form>
-        <br/>
 
-        <div class="alert alert-warning alert-dismissible">
+        <div class="alert alert-warning alert-dismissible mt-3">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <p>This site use cookies more in <a href="./about/cookies_policy.php">Cookies Policy</a></p>
+            <label>This site use cookies more in <a href="/about/cookies_policy.php">Cookies Policy</a></label>
         </div>
 
-        <br/>
-        <footer class="footer fixed-bottom text-left list-unstyled">
+        <ul class="footer list-unstyled">
 
-           <ul class="list-unstyled">
+            <li>
+                <a href="/pages/terms_and_conditions.php" target="_blank">Terms and Conditions</a>
+            </li>
 
-               <li class="nav-item">
-                   <a href="./about/terms_and_conditions.php" class="nav-link" target="_blank">Terms and Conditions</a>
-               </li>
+            <li>
+                <a href="/pages/cookies_policy.php" target="_blank">Cookies Policy</a>
+            </li>
 
-               <li class="nav-item">
-                   <a href="./about/cookies_policy.php" class="nav-link" target="_blank">Cookies Policy</a>
-               </li>
+            <li>
+                <a href="https://github.com/danielmac03/Linsetup" target="_blank">Github</a>
+            </li>
 
-               <li class="nav-item">
-                   <a href="https://github.com/danielmac03/Linsetup" class="nav-link" target="_blank">Github</a>
-               </li>
-
-           </ul>
-       </footer>
+        </ul>
+        
+        <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/resources/php-requires/modals.php'; ?>
 
         <?php deleteErrors(); ?>
-  </body>
+
+    </body>
+
 </html>

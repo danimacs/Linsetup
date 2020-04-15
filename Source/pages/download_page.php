@@ -1,128 +1,112 @@
 <?php
-require_once '.././configs/connection.php';
-require_once '.././configs/functions.php';
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/configs/connection.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/configs/functions.php';
 
 if (empty($_SESSION['clickeds'])){
-    header('Location: .././index.php');
+    header('Location: ../index.php');
+    die();
 }
+
+$title = "Download Page";
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<html>
-        <head>
-            <?php require_once '.././configs/meta.php'; ?>
-            <title>LINSETUP</title>
-        </head>
 
-        <body class="container">
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/resources/php-requires/meta.php'; ?>
 
-     <nav class="navbar navbar-expand-sm bg-dark navbar-light">
+    <body class="container">
 
-         <ul class="list-unstyled">
+        <nav class="navbar navbar-expand-sm mt-5 mb-3 p-0">
 
-             <li class="nav-item">
-                 <h1><a href=".././index.php" class="nav-link">LINSETUP</a></h1>
-             </li>
+            <ul class="nav list-unstyled w-100">
 
-            <?php if (isset($_SESSION['user_identify'])): ?>
-                 <li class="nav-item text-right">
-                     <a href=".././user/my_user.php" class="nav-link"><?=$_SESSION['user_identify']['user'];?></a>
-                     <a href=".././user/my_data.php" class="nav-link">Settings</a>
-                     <a href=".././configs/logout.php" class="nav-link">Sign Off</a>
-                 </li>
-             <?php endif; ?>
+                <li class="d-inline-block">
+                    <h1><a href="../index.php">LINSETUP</a></h1>
+                </li>
 
-             <?php if (!isset($_SESSION['user_identify'])): ?>
-                 <li class="nav-item text-right">
-                     <a href="signin.php" class="btn btn-primary">Sign in</a>
-                     <a href="login.php" class="btn btn-primary">Login</a>
-                 </li>
-             <?php endif; ?>
+                <li class="ml-auto d-inline-block mt-1 text-white">
 
-         </ul>
+                    <?php if (isset($_SESSION['user_identify'])): ?>
+                        <a href="../pages/my_user.php" class="btn btn-primary"><?=$_SESSION['user_identify']['user'];?></a>
+                        <a data-toggle="modal" data-target="#settings" class="btn btn-primary"><i class="fas fa-sliders-h"></i></a>
+                        <a href="../configs/logout.php" class="btn btn-primary"><i class="fas fa-sign-out-alt"></i></a>
+                    <?php endif; ?>
 
-     </nav>
+                    <?php if (!isset($_SESSION['user_identify'])): ?>
+                        <a data-toggle="modal" data-target="#signin" class="btn btn-primary">Sign in</a>
+                        <a data-toggle="modal" data-target="#login" class="btn btn-primary">Login</a>
+                    <?php endif; ?>
 
-        <?php if (isset($_SESSION['errors'])) : ?>
-            <div class="alert alert-danger alert-dismissible">
-                <?=$_SESSION['errors'];?>
-            </div>
-        <?php endif;?>
+                </li>
 
-        <?php if(isset($_SESSION['completed'])): ?>
-            <div class="alert alert-success alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <?=$_SESSION['completed']?>
-            </div>
-        <?php endif; ?>
+            </ul>
+        </nav>
 
-                <div class="list-unstyled">
-                <?php
-                if (isset($_SESSION['clickeds']['commands'])):
-                    $commands = $_SESSION['clickeds']['commands'];
-                    $long_commands = count($commands);
-                    $long_commands--;
-                    for ($i = 0; $i <= $long_commands; $i++):
-                        $txt = $txt . $commands[$i] . "\n";
-                ?>
-                   <img width="18px" alt="Default Logo" src=".././resources/img/logos/default-logo.png?>">
-                   <label class="list-unstyled"><?=$commands[$i]?></label><br/>
-                <?php
-                    endfor;
-                endif;
-                ?>
-                <?php
-                $long = count($_SESSION['clickeds']['software']);
-                $long--;
-                for ($i = 0; $i <= $long; $i++):
-                    $namesclickeds = searcherPacketsFromID($db, $_SESSION['clickeds']['software'][$i]);
-                    $nameclickeds = mysqli_fetch_assoc($namesclickeds);
-                    $altlogo = explode(".", $nameclickeds['name']);
-                    $altlogo = $altlogo[0];
-                    $altlogo = $altlogo . " Logo";
-                ?>
-                    <div class="list-unstyled">
-                        <img width="18px" alt="<?=$altlogo?>" src=".././resources/img/logos/<?=$nameclickeds['logo']?>">
-                        <label class="list-unstyled"><?=$nameclickeds['name']?></label>
-                    </div>
-                <?php
+
+        <div class="jumbotron mt-5 py-5">
+            <h2>How to install</h2>
+            <p>
+                Open a terminal in download folder<br>
+                chmod +x autoinstaller.sh && yes | ./autoinstaller.sh
+            </p>
+        </div>
+
+        <div class="list-unstyled">
+            <?php
+            if (isset($_SESSION['clickeds']['commands'])):
+                $commands = $_SESSION['clickeds']['commands'];
+                $long_commands = count($commands) -1;
+                $txt = null;
+                for ($i = 0; $i <= $long_commands; $i++):
+                    $txt = $txt . $commands[$i] . "\n";
+            ?>
+                <img width="18px" alt="Default Logo" src="../resources/img/logos/default-logo.png?>">
+                <label class="list-unstyled"><?=$commands[$i]?></label><br/>
+            <?php
                 endfor;
-                unset($_SESSION['clickeds']);
-                ?>
-            </div>
+            endif;
+            ?>
+            
+            <?php
+            $long = count($_SESSION['clickeds']['software']) -1;
+            $names = null;
+            for ($i = 0; $i <= $long; $i++):
+                $namesclickeds = searcherPacketsFromID($db, $_SESSION['clickeds']['software'][$i]);
+                $nameclickeds = mysqli_fetch_assoc($namesclickeds);
+            ?>
+                <div class="list-unstyled">
+                    <img width="18px" alt="<?=$software['name'] . " Logo"?>" src="../resources/img/logos/<?=$nameclickeds['logo']?>">
+                    <label class="list-unstyled"><?=$nameclickeds['name']?></label>
+                </div>
+            <?php
+            endfor;
+            unset($_SESSION['clickeds']);
+            ?>
+    </div>
 
-            <div class="instrucctions">
-                <h2>How to install</h2>
-                <p>Open a terminal</p>
-                <p>cd Download/</p>
-                <p>chmod +x autoinstaller.sh</p>
-                <p>yes | ./autoinstaller.sh</p>
-            </div><br/>
+    <a href="../validate_data/autoinstaller.sh" class="btn btn-primary mt-3" download>Download Autoinstaller</a>
+    
+    <ul class="footer list-unstyled mt-5">
 
-            <a href=".././validate_data/autoinstaller/autoinstaller.sh"" class="btn btn-primary" download>Download Autoinstaller</a>
+        <li>
+            <a href="../pages/terms_and_conditions.php">Terms and Conditions</a>
+        </li>
 
-        <?php deleteErrors(); ?>
+        <li>
+            <a href="../pages/cookies_policy.php" target="_blank">Cookies Policy</a>
+        </li>
 
-     <br/>
-     <footer class="text-left list-unstyled">
+        <li>
+            <a href="https://github.com/danielmac03/Linsetup" target="_blank">Github</a>
+        </li>
 
-         <ul class="list-unstyled">
+    </ul>
+        
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/resources/php-requires/modals.php'; ?>
 
-             <li class="nav-item">
-                 <a href=".././about/terms_and_conditions.php" class="nav-link" target="_blank">Terms and Conditions</a>
-             </li>
-
-             <li class="nav-item">
-                 <a href=".././about/cookies_policy.php" class="nav-link" target="_blank">Cookies Policy</a>
-             </li>
-
-             <li class="nav-item">
-                 <a href="https://github.com/danielmac03/Linsetup" class="nav-link" target="_blank">Github</a>
-             </li>
-
-         </ul>
-     </footer>
+    <?php deleteErrors(); ?>
 
     </body>
 </html>

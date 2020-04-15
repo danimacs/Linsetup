@@ -1,6 +1,0 @@
-{
-    "require": {
-        "ext-mysqli": "7.3.7",
-        "ext-gd": "*"
-    }
-}

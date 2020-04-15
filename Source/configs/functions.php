@@ -19,8 +19,23 @@ function deleteErrors (){
         $deleted = true;
     }
 
-    if (isset($_SESSION['notify'])){
-        $_SESSION['notify'] = null;
+    if (isset($_SESSION['errors_signin'])){
+        $_SESSION['errors_signin'] = null;
+        $deleted = true;
+    }
+
+    if (isset($_SESSION['errors_change_password'])){
+        $_SESSION['errors_change_password'] = null;
+        $deleted = true;
+    }
+
+    if (isset($_SESSION['errors_change_data'])){
+        $_SESSION['errors_change_data'] = null;
+        $deleted = true;
+    }
+    
+    if (isset($_SESSION['errors_recovery'])){
+        $_SESSION['errors_recovery'] = null;
         $deleted = true;
     }
 
@@ -68,8 +83,8 @@ function searcherPacketsFromID($connection, $id)
 
 }
 
-function searcherCategorieshead($connection){
-    $sql = "SELECT * FROM categories ORDER BY id ASC LIMIT 5";
+function searcherCategories0($connection){
+    $sql = "SELECT * FROM categories WHERE id BETWEEN 0 AND 4";
     $searchs = mysqli_query($connection, $sql);
 
     $result = array();
@@ -81,8 +96,21 @@ function searcherCategorieshead($connection){
 
 }
 
-function searcherCategoriesfooter($connection){
-    $sql = "SELECT * FROM categories ORDER BY id DESC LIMIT 4";
+function searcherCategories1($connection){
+    $sql = "SELECT * FROM categories WHERE id BETWEEN 5 AND 7";
+    $searchs = mysqli_query($connection, $sql);
+
+    $result = array();
+    if ($searchs && mysqli_num_rows($searchs) >= 1) {
+        $result = $searchs;
+    }
+
+    return $searchs;
+
+}
+
+function searcherCategories2($connection){
+    $sql = "SELECT * FROM categories WHERE id BETWEEN 8 AND 9";
     $searchs = mysqli_query($connection, $sql);
 
     $result = array();

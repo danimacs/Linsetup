@@ -59,7 +59,7 @@ if (isset($_POST)) {
         $user_database = mysqli_fetch_assoc($login);
         $_SESSION['user_identify'] = $user_database;
 
-        header('Location: ./send_email.php?user_id=$user_id&action=signin');
+        header('Location: ./send_email.php?user_id='.$user_id.'&action=signin');
         die();
         
     }else{

@@ -93,7 +93,7 @@ INSERT INTO `software` (`id`, `name`, `logo`, `category`, `add_repository`, `nam
 (7, 'qBittorrent', 'qbittorrent-logo.png', 2, NULL, 'qbittorrent', 0, 'apt install'),
 (8, 'Skype', 'skype-logo.png', 3, NULL, 'skype', 0, 'snap install'),
 (9, 'Telegram Desktop', 'telegram-logo.png', 3, NULL, 'telegram-desktop', 0, 'apt install'),
-(10, 'Mailspring', 'mailspring-logo.png', 3, NULL, 'mailspring', 0, 'apt install'),
+(10, 'Mailspring', 'mailspring-logo.png', 3, NULL, 'mailspring', 0, 'snap install'),
 (11, 'Thunderbird', 'thunderbird-logo.png', 3, NULL, 'thunderbird', 0, 'apt install'),
 (12, 'VLC', 'vlc-logo.png', 4, NULL, 'vlc', 0, 'snap install'),
 (13, 'Spotify', 'spotify-logo.png', 4, NULL, 'spotify', 0, 'snap install'),

@@ -8,6 +8,7 @@
     <meta name="description" content="Linseetup allows you to select from a variety of programs and create a script that will allow you to install them at once on Linux.">
     <meta name="keywords" content="Linux, Installer, Script, Generator">
     <meta name="robots" content="index, follow, all">
+    <meta name="google" content="notranslate">
     <meta http-equiv="Content-Language" content="en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
 

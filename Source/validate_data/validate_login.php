@@ -69,7 +69,7 @@ if ($_POST){
                 $_SESSION['errors'] = "This account is blocked, check your email";
                 $account = $account['id'];
 
-                header('Location: ../validate_data/send_email.php?user_id=$account&action=unlock');
+                header('Location: ../validate_data/send_email.php?user_id='.$account.'&action=unlock');
                 die();
 
             }else{

@@ -23,7 +23,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/configs/connection.php';
             }elseif($_GET['action'] == "recovery"){
                 $sql = "UPDATE tokens SET status = 1 WHERE user = '$user' AND token = '$token'";
                 mysqli_query($db, $sql);
-                header('Location: ../index.php?recovery_password&user=$user&token=$token');
+                header('Location: ../index.php?recovery_password&user='.$user.'&token='.$token);
                 die();
             }
 

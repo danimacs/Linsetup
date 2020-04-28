@@ -50,7 +50,7 @@ if(isset($_POST)){
 
 }
 
-header('Location: ../index.php?recovery_password&user=$user&token=$token');
+header('Location: ../index.php?recovery_password&user='.$user.'&token='.$token);
 die();
 
 ?>

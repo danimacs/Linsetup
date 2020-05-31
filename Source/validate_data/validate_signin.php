@@ -49,8 +49,9 @@ if (isset($_POST)) {
         $sql = "INSERT INTO users VALUE (null, '$user', '$email', '$password_secure', NOW(), null, 0, 0, null, null);";
         $query_save = mysqli_query($db, $sql);
 
-        $user_id = getLastIDEntries($db, "users");
-        $user_id = $user_id++;
+        $sql = "SELECT id FROM users ORDER BY id DESC LIMIT 1";
+        $user_id = mysqli_query($db, $sql);
+        $user_id = mysqli_fetch_assoc($user_id)['id'];
 
         //Automatic login after registration
         $sql = "SELECT * FROM users WHERE email = '$email'";

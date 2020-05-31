@@ -58,17 +58,6 @@ function getUserFromId($connection, $id){
     return $user;
 }
 
-function getLastIDEntries($connection, $table){
-    $sql = "SELECT id FROM $table ORDER BY id DESC LIMIT 1";
-    $result = mysqli_query($connection, $sql);
-
-    while($row = mysqli_fetch_array($result)){
-        $id = $row['id'];
-    }
-
-    return $id;
-}
-
 function searcherPacketsFromID($connection, $id)
 {
     $sql = "SELECT * FROM software WHERE id = '$id'";

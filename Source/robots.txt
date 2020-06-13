@@ -1,5 +1,12 @@
 User-agent: *
-Allow: /
-
+Allow: /resources/
+Allow: /pages/
+Disallow: /configs/
+Disallow: /libraries/
+Disallow: /pages/download_page.php
+Disallow: /resources/img/logos/
+Disallow: /resources/img/custom.css
+Disallow: /resources/img/php-requires/
+Disallow: /validate_data/
 
 Sitemap: http://www.linsetup.com/sitemap.xml

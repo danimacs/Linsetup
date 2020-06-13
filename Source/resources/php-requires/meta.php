@@ -42,6 +42,14 @@
     }
     ?>
 
+    <?php if (isset($_GET['login'])) : ?>
+        <script type="text/javascript">
+            $(window).on('load', function() {
+                $('#login').modal('show');
+            });
+        </script>
+    <?php endif; ?>
+    
     <?php if (isset($_SESSION['errors_signin'])) : ?>
         <script type="text/javascript">
             $(window).on('load', function() {

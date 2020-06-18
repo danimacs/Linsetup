@@ -49,7 +49,7 @@ $title = "Download Page";
             <h2>How to install</h2>
             <p>
                 Open a terminal in download folder<br>
-                chmod +x autoinstaller.sh && yes | ./autoinstaller.sh
+                chmod +x linsetup_autoinstaller.sh && yes | ./linsetup_autoinstaller.sh
             </p>
         </div>
 
@@ -60,7 +60,7 @@ $title = "Download Page";
                 $long_commands = count($commands) -1;
                 $txt = null;
                 for ($i = 0; $i <= $long_commands; $i++):
-                    $txt = $txt . $commands[$i] . "\n";
+                    $txt .= $commands[$i] . "\n";
             ?>
                 <img width="18px" alt="Default Logo" src="../resources/img/logos/default-logo.png?>">
                 <label class="list-unstyled"><?=$commands[$i]?></label><br/>
@@ -86,7 +86,7 @@ $title = "Download Page";
             ?>
     </div>
 
-    <a href="../validate_data/autoinstaller.sh" class="btn btn-primary mt-3" download>Download Autoinstaller</a>
+    <a href="../validate_data/linsetup_autoinstaller.sh" class="btn btn-primary mt-3" download>Download Autoinstaller</a>
     
     <ul class="footer list-unstyled mt-5">
 

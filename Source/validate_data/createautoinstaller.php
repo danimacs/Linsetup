@@ -5,14 +5,14 @@ if($_POST){
     require_once $_SERVER['DOCUMENT_ROOT'] . '/configs/functions.php';
     require_once $_SERVER['DOCUMENT_ROOT'] . '/configs/connection.php';
 
-    $txt = "#!/bin/bash \n\n";
+    $txt = "#!/bin/bash \n";
 
     if (!empty($_POST['commands'])){
         $commands_clean = mysqli_real_escape_string($db, $_POST['commands']);
         $commands = explode('\r\n', $commands_clean);
         $long_commands = count($commands) -1;
         for ($i = 0; $i <= $long_commands; $i++){
-            $txt = $txt . $commands[$i] . "\n";
+            $txt .= "\n" . $commands[$i];
         }
         $_SESSION['clickeds']['commands'] = $commands;
     }
@@ -31,16 +31,24 @@ if($_POST){
         for ($i = 0; $i <= $long; $i++) {
             $searchs = searcherPacketsFromID($db, $software[$i]);
             $search = mysqli_fetch_assoc($searchs);
+
             if ($search['add_repository'] != null) {
-                $txt = $txt . $search['add_repository'];
-                $txt = $txt . "sudo apt update" . "\n";
+                $txt .= "\n" . $search['add_repository'];
+                $txt .= "sudo apt update";
             }
         }
 
         for ($i = 0; $i <= $long; $i++) {
             $searchs = searcherPacketsFromID($db, $software[$i]);
             $search = mysqli_fetch_assoc($searchs);
-            $txt = $txt . "sudo " . $search['source'] . " " . $search['name_packet'] . "\n";
+
+            if(strpos($search['source'], 'snap') !== false && !isset($snap)){
+                $txt .= "\n" . 'sudo apt install snapd';
+                $snap = true;
+            }
+
+            $txt .= "\n" . "sudo" . " " . $search['source'] . " " . $search['name_packet'];
+
         }
 
         $_SESSION['clickeds']['software'] = $software;
@@ -60,12 +68,13 @@ if($_POST){
 
     }
 
-    $file  = fopen('autoinstaller.sh','w');
+    $file = fopen('linsetup_autoinstaller.sh','w');
     fwrite($file, $txt);
     fclose($file);
 
     header('Location: ../pages/download_page.php');
     die();
+    
 }else{
     header('Location: ../index.php');
     die();

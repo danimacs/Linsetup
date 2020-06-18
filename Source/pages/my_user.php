@@ -69,10 +69,9 @@ $title = $_SESSION['user_identify']['user'];
                     <input type="text" style="opacity: 0" id="<?=$autoinstaller['id']?>" value="https://www.linsetup.com/validate_data/downloadautoinstaller.php?id=<?=$autoinstaller['id']?>">
 
             <?php
-                    endwhile;
-                endif;
-                ?>
-
+                endwhile;
+            endif;
+            ?>
 
             <?php if (!mysqli_num_rows($autoinstallers)): ?>
                 <p>You haven't saved any autoinstallers yet</p>

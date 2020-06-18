@@ -125,8 +125,7 @@ function getSoftware(
 
 }
 
-function getsaveautoinstallers($connection, $user)
-{
+function getsaveautoinstallers($connection, $user){
 
     $sql = "SELECT * FROM saveautoinstaller WHERE user = $user ORDER BY create_datetime DESC";
     $searchs = mysqli_query($connection, $sql);

@@ -15,7 +15,7 @@ if (is_int($id)) {
 
 if ($autoinstaller['share'] == 1 || $_SESSION['user_identify']['id'] == $autoinstaller['user']) {
 
-    $txt = "#!/bin/bash \n\n";
+    $txt = "#!/bin/bash \n";
 
     if (!empty($autoinstaller['commands'])) {
         $commands = mysqli_real_escape_string($db, $autoinstaller['commands']);
@@ -23,7 +23,7 @@ if ($autoinstaller['share'] == 1 || $_SESSION['user_identify']['id'] == $autoins
         $long_commands = count($commands) -1;
 
         for ($i = 0; $i <= $long_commands; $i++){
-            $txt = $txt . $commands[$i] . "\n";
+            $txt .= "\n" .$commands[$i];
         }
 
         $_SESSION['clickeds']['commands'] = $commands;
@@ -37,22 +37,28 @@ if ($autoinstaller['share'] == 1 || $_SESSION['user_identify']['id'] == $autoins
             $searchs = searcherPacketsFromID($db, $software[$i]);
             $search = mysqli_fetch_assoc($searchs);
             if ($search['add_repository'] != null) {
-                $txt = $txt . $search['add_repository'];
-                $txt = $txt . "sudo apt update" . "\n";
+                $txt .= "\n" . $search['add_repository'];
+                $txt .= "sudo apt update";
             }
         }
 
         for ($i = 0; $i <= $long; $i++) {
             $searchs = searcherPacketsFromID($db, $software[$i]);
             $search = mysqli_fetch_assoc($searchs);
-            $txt = $txt . "sudo " . $search['source'] . " " . $search['name_packet'] . "\n";
+
+            if(strpos($search['source'], 'snap') !== false && !isset($snap)){
+                $txt .= "\n" . 'sudo apt install snapd';
+                $snap = true;
+            }
+
+            $txt .= "\n" . "sudo" . " " . $search['source'] . " " . $search['name_packet'];
         }
 
         $_SESSION['clickeds']['software'] = $software;
 
     }
 
-    $file = fopen('autoinstaller.sh', 'w');
+    $file = fopen('linsetup_autoinstaller.sh', 'w');
     fwrite($file, $txt);
     fclose($file);
 

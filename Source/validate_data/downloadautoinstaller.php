@@ -38,7 +38,7 @@ if ($autoinstaller['share'] == 1 || $_SESSION['user_identify']['id'] == $autoins
             $search = mysqli_fetch_assoc($searchs);
             if ($search['add_repository'] != null) {
                 $txt .= "\n" . $search['add_repository'];
-                $txt .= "sudo apt update";
+                $txt .= "\n" . "sudo apt update";
             }
         }
 

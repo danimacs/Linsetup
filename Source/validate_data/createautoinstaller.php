@@ -34,7 +34,7 @@ if($_POST){
 
             if ($search['add_repository'] != null) {
                 $txt .= "\n" . $search['add_repository'];
-                $txt .= "sudo apt update";
+                $txt .= "\n" . "sudo apt update";
             }
         }
 
